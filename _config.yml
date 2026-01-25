@@ -1,0 +1,8 @@
+title: "Errol Pascua"
+description: "Embedded / Security Engineer — Resume & Projects"
+theme: minima
+
+header_pages:
+  - resume.md
+  - projects.md
+  - about.md
