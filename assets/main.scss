@@ -3,43 +3,111 @@
 
 @import "minima";
 
-/* Force GitHub-style dark theme */
+/* =========
+   Core palette (security-ish, GitHub-dark base)
+   ========= */
+:root {
+  --bg: #0b0f14;         /* overall background */
+  --panel: #0b0f14;      /* make panels same as bg */
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --border: #1f2a37;
+  --accent: #00e5ff;     /* neon-cyan accent */
+  --link: #58a6ff;
+  --codebg: #0f1722;
+}
+
+/* Make the whole site one consistent background */
 html, body {
-  background-color: #0d1117 !important;
-  color: #c9d1d9 !important;
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }
 
-a {
-  color: #58a6ff !important;
+/* Kill the lighter "panel" look: wrapper, page-content, footer/header all match bg */
+.wrapper,
+.page-content,
+.post-content,
+.site-header,
+.site-footer,
+.site-nav,
+.site-title,
+.site-title:visited {
+  background: var(--bg) !important;
 }
 
+/* Remove any default “card/panel” styling */
 .site-header,
 .site-footer {
-  background-color: #010409 !important;
-  border-color: #30363d !important;
+  border-color: var(--border) !important;
 }
 
-.page-content,
-.wrapper,
-.post-content,
-.page-content > .wrapper {
-  background-color: #0d1117 !important;
+/* Typography + security vibe */
+body {
+  letter-spacing: 0.2px;
 }
 
+/* Headings: slightly sharper + brighter */
 h1, h2, h3, h4, h5, h6 {
   color: #e6edf3 !important;
+  text-transform: none;
 }
 
-p, li, span, div {
-  color: #c9d1d9;
+/* Links */
+a, a:visited {
+  color: var(--link) !important;
+}
+a:hover {
+  color: var(--accent) !important;
+  text-decoration: none;
 }
 
+/* Subtle “terminal” accent line under page titles (optional) */
+h1 {
+  position: relative;
+  padding-bottom: 0.35rem;
+}
+h1:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 72px;
+  margin-top: 0.5rem;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+/* Code styling */
 code, pre, .highlight {
-  background-color: #161b22 !important;
-  color: #c9d1d9 !important;
-  border-radius: 6px;
+  background: var(--codebg) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
 
 pre code {
   background: transparent !important;
+  border: none;
+}
+
+/* Lists + text */
+p, li {
+  color: var(--text);
+}
+small, .post-meta, .footer-col, .site-description {
+  color: var(--muted) !important;
+}
+
+/* Make nav links feel more “security UI” */
+.site-nav .page-link {
+  color: var(--text) !important;
+  opacity: 0.9;
+}
+.site-nav .page-link:hover {
+  color: var(--accent) !important;
+}
+
+/* Optional: remove the big top/bottom whitespace lines */
+.page-content {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
 }
