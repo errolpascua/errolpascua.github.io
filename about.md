@@ -40,21 +40,18 @@ I tend to gravitate toward roles where correctness and security matter as much a
 
 Outside of engineering, I spend time on activities that balance focus, discipline, and hands-on problem solving.
 
-I am a practitioner of **Tabimina Balintawak** and an **apprentice feeder**, which has strengthened my appreciation for timing, precision, and structured progression — skills that translate well to technical problem-solving.
+I am a practitioner of **Balintawak** and an **apprentice feeder**, which has strengthened my appreciation for **timing, precision, patience, and calmness under pressure**. The discipline emphasizes structured progression, controlled responses, and clear decision-making in dynamic situations — skills that translate directly to technical problem-solving and debugging under time constraints.
 
-I also have a strong interest in **automotive engineering**, particularly **Japanese cars**, **turbocharged four-cylinder platforms**, and **Subarus**. I enjoy learning how mechanical, electrical, and control systems interact, and how design tradeoffs impact performance, reliability, and longevity.
+I also have a strong interest in **Japanese performance cars**, particularly **turbocharged four-cylinder platforms and Subarus**, and enjoy understanding how mechanical and control systems interact and how design tradeoffs affect performance and reliability.
 
-I also enjoy:
-- 🖨️ 3D printing and designing small functional parts
-- 🎮 Video games
+In my free time, I enjoy:
+- 🖨️ **Designing and 3D-printing small functional parts**
+- 🛠️ Hands-on tinkering and learning through building
+- 🎮 Video games and other problem-solving oriented games
 - 🏂 Snowboarding
-- 🍜 Trying new foods and exploring different cuisines
-- 🧋 Boba
 - 🐕 Spending time with my dog
 
 These interests help me stay balanced, curious, and engaged both inside and outside of work.
-
-
 
 ---
 
