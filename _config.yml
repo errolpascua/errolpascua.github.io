@@ -4,16 +4,13 @@ theme: minima
 
 minima:
   skin: dark
+  social_links:
+    - platform: linkedin
+      user_url: https://www.linkedin.com/in/errol-pascua
 
+author: Errol Pascua
 
 header_pages:
   - resume.md
   - projects.md
   - about.md
-
-author:
-  name: Errol Pascua
-
-social_links:
-  - platform: linkedin
-    user_url: https://www.linkedin.com/in/errol-pascua
