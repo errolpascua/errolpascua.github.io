@@ -42,6 +42,8 @@ Outside of engineering, I spend time on activities that balance focus, disciplin
 
 I am a practitioner of **Tabimina Balintawak** and an **apprentice feeder**, which has strengthened my appreciation for timing, precision, and structured progression — skills that translate well to technical problem-solving.
 
+I also have a strong interest in **automotive engineering**, particularly **Japanese cars**, **turbocharged four-cylinder platforms**, and **Subarus**. I enjoy learning how mechanical, electrical, and control systems interact, and how design tradeoffs impact performance, reliability, and longevity.
+
 I also enjoy:
 - 🖨️ 3D printing and designing small functional parts
 - 🎮 Video games
@@ -50,8 +52,8 @@ I also enjoy:
 - 🧋 Boba
 - 🐕 Spending time with my dog
 
-
 These interests help me stay balanced, curious, and engaged both inside and outside of work.
+
 
 
 ---
