@@ -58,3 +58,4 @@ These interests help me stay balanced, curious, and engaged both inside and outs
 
 - [LinkedIn](https://www.linkedin.com/in/errol-pascua)
 - Email: errol.pascua99@gmail.com
+- Cellphone: 480-252-4571
