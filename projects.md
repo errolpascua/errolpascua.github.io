@@ -6,7 +6,7 @@ permalink: /projects/
 
 ## Selected Engineering Projects
 
-These projects reflect the types of systems I work on professionally, focusing on embedded security, correctness, and tooling. Descriptions are intentionally high-level.
+These projects reflect the types of systems I work on professionally, focusing on embedded security, correctness, and tooling. Descriptions are intentionally high-level and non-proprietary.
 
 ---
 
@@ -42,18 +42,6 @@ Embedded cryptographic code is difficult to validate purely on-device.
 
 ---
 
-### Secure Key Provisioning & Trust Flows
-
-**Problem:**  
-Ensure cryptographic keys transition safely from development to production environments.
-
-**What I Worked On:**
-- Secure key provisioning workflows backed by hardware-rooted trust
-- Firmware metadata handling for provisioning and signing workflows
-- Validation of key migration paths from volatile to non-volatile storage
-
----
-
 ## Personal & Side Projects
 
 These projects reflect my interest in hands-on engineering, rapid iteration, and building practical tools.
@@ -62,30 +50,76 @@ These projects reflect my interest in hands-on engineering, rapid iteration, and
 
 ### Mini Guitar Hero Controllers
 
-- Designed and built compact custom controllers
-- Focused on input handling, latency, and reliability
-- Combined embedded firmware with mechanical design considerations
+![Mini Guitar Hero Controller](ghcontroller.jpg)
+
+**Motivation:**  
+Commercial Guitar Hero controllers have become surprisingly expensive, and I already owned a 3D printer and many of the required electronic components.
+
+Rather than purchasing new controllers, it was cheaper and more interesting to build my own.
+
+**What I Built:**
+- Compact custom Guitar Hero-style controllers
+- Used an **ATmega32U4-based board (Arduino Micro form factor)** for native USB HID support
+- Leveraged existing parts such as switches and wiring, minimizing new component costs
+- Designed and 3D-printed the enclosure and mechanical components
+
+**Why It Was Worth Doing:**
+- Reduced cost compared to buying original controllers
+- Full control over form factor and input layout
+- Reinforced firmware + hardware + mechanical integration skills
 
 ---
 
-### Magic Mirror
+### Shared Household Calendar (Magic Mirror-Style Display)
 
-- Built a smart mirror displaying dynamic information
-- Integrated software, hardware, and enclosure design
-- Focused on usability and clean presentation
+![Shared Calendar Display](calendar.jpg)
+
+**Motivation:**  
+At one point, my girlfriend, her parents, and I were all living in the same house. Coordinating appointments, vacations, and medical visits across multiple people became difficult using individual calendars.
+
+We needed a **single, always-visible source of truth**.
+
+**What I Built:**
+- A shared calendar display connected to multiple Google Calendar accounts
+- Integrated each person’s calendar with **color coding** to clearly show:
+  - Who has events
+  - What day events occur
+  - Overlapping schedules
+- Designed the system to be readable at a glance from across the room
+
+**Why It Was Worth Doing:**
+- Reduced scheduling conflicts and missed appointments
+- Improved visibility for shared plans and travel
+- Demonstrated practical integration of software services into a physical display
 
 ---
 
 ### Shop Vac → Pet Vacuum Adapter
 
-- Designed a custom adapter to use pet grooming vacuum brushes with a higher-power shop vac
-- Modeled and iterated parts using 3D printing
-- Balanced airflow, fitment, and durability
+![Pet Vacuum Brush](petvacbrush.png)
+![3D Printed Adapter](petvacadapter.jpg)
+
+**Motivation:**  
+Pet grooming vacuum attachments are convenient but often limited by weak suction and small collection capacity. I already owned a shop vacuum with significantly stronger suction power and a much larger capacity.
+
+The goal was to reduce grooming time and avoid frequent stops to empty the vacuum by leveraging equipment I already had.
+
+**What I Built:**
+- A custom-designed adapter to connect pet grooming vacuum brushes to a shop vac
+- Iterated the adapter design using 3D printing to ensure proper fitment and airflow
+- Designed the part to be durable enough for repeated use while maintaining a good seal
+
+**Why It Was Worth Doing:**
+- Significantly stronger suction improved grooming effectiveness
+- Larger capacity reduced interruptions during grooming sessions
+- Saved time compared to using standard pet grooming vacuums
+- Reinforced practical mechanical design and rapid iteration skills
+
 
 ---
 
 ### 3D Printing & Functional Parts
 
 - Design and print small functional components, adapters, and fixtures
-- Emphasis on iteration, tolerances, and real-world usability
-- Often used to support other electronics and household projects
+- Focus on tolerances, mechanical fit, and real-world usability
+- Frequently used to support electronics, prototyping, and household projects
