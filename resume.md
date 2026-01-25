@@ -101,5 +101,5 @@ Embedded software engineer specializing in cryptography and security-focused dev
 - Hardware Security Modules
 - Secure Boot & Key Provisioning
 - ACVP & Cryptographic Validation
-- MISRA-C, ASPICE, ISO-21434
+- MISRA-C, ASPICE
 - Test Automation & CI for Embedded Systems
