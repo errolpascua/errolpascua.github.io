@@ -2,6 +2,9 @@ title: "Errol Pascua"
 description: "Embedded / Security Engineer — Resume & Projects"
 theme: minima
 
+minima:
+  skin: dark
+
 header_pages:
   - resume.md
   - projects.md
