@@ -11,6 +11,8 @@ permalink: /resume/
 📞 (480) 252-4571  
 📧 errol.pascua99@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/errol-pascua)
+📄 [Download PDF Resume](resume/Errol_Pascua_Updated.pdf)
+
 
 ---
 
