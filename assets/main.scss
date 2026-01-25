@@ -7,120 +7,202 @@
    Core palette (security-ish, GitHub-dark base)
    ========= */
 :root {
-  --bg: #0b0f14;         /* overall background */
-  --panel: #0b0f14;      /* make panels same as bg */
-  --text: #c9d1d9;
+  --bg: #0b0f14;          /* overall background */
+  --panel: #0b0f14;       /* make panels same as bg */
+  --text: #b9c0c8;        /* slightly desaturated body text */
+  --text-strong: #e6edf3; /* headings / strong text */
   --muted: #8b949e;
   --border: #1f2a37;
-  --accent: #00e5ff;     /* neon-cyan accent */
-  --link: #58a6ff;
+
+  /* Unified accent: use one color everywhere */
+  --accent: #58a6ff;      /* GitHub-ish blue */
+  --accent-hover: #79c0ff;
+
   --codebg: #0f1722;
 }
 
-/* Make the whole site one consistent background */
+/* =========
+   Global background + typography
+   ========= */
 html, body {
   background: var(--bg) !important;
   color: var(--text) !important;
 }
 
-/* Kill the lighter "panel" look: wrapper, page-content, footer/header all match bg */
+body {
+  letter-spacing: 0.15px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* Make the whole site one consistent background */
 .wrapper,
 .page-content,
 .post-content,
 .site-header,
 .site-footer,
-.site-nav,
-.site-title,
-.site-title:visited {
+.site-nav {
   background: var(--bg) !important;
 }
 
-/* Remove any default “card/panel” styling */
-.site-header,
-.site-footer {
-  border-color: var(--border) !important;
+/* Make content width feel a bit more “app-like” (optional) */
+.wrapper {
+  max-width: 980px;
 }
 
-/* Typography + security vibe */
-body {
-  letter-spacing: 0.2px;
+/* =========
+   Header / nav polish
+   ========= */
+.site-header {
+  border-top: none !important;
+  border-bottom: 1px solid rgba(31, 42, 55, 0.9) !important;
 }
 
-/* Headings: slightly sharper + brighter */
-h1, h2, h3, h4, h5, h6 {
-  color: #e6edf3 !important;
-  text-transform: none;
+.site-title,
+.site-title:visited {
+  color: var(--accent) !important;
+  letter-spacing: 0.3px;
 }
 
-/* Links */
-a, a:visited {
-  color: var(--link) !important;
+.site-nav .page-link {
+  color: var(--muted) !important;
+  opacity: 1;
 }
-a:hover {
+
+.site-nav .page-link:hover {
   color: var(--accent) !important;
   text-decoration: none;
 }
 
-/* Subtle “terminal” accent line under page titles (optional) */
+/* =========
+   Headings: semi-monospace security vibe
+   ========= */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-strong) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-transform: none;
+}
+
+/* Subtle “terminal” accent line under page titles */
 h1 {
   position: relative;
   padding-bottom: 0.35rem;
 }
+
 h1:after {
   content: "";
   display: block;
   height: 2px;
-  width: 72px;
+  width: 84px;
   margin-top: 0.5rem;
   background: var(--accent);
-  opacity: 0.7;
+  opacity: 0.9;
+  border-radius: 2px;
 }
 
-/* Code styling */
+/* =========
+   Links (unified)
+   ========= */
+a, a:visited {
+  color: var(--accent) !important;
+}
+
+a:hover {
+  color: var(--accent-hover) !important;
+  text-decoration: none;
+}
+
+/* =========
+   Body text + spacing
+   ========= */
+p, li {
+  color: var(--text) !important;
+}
+
+strong {
+  color: var(--text-strong);
+}
+
+small, .post-meta, .site-description {
+  color: var(--muted) !important;
+}
+
+/* Slightly nicer vertical rhythm */
+.page-content {
+  padding-top: 2.25rem;
+  padding-bottom: 2.75rem;
+}
+
+/* =========
+   Subtle divider lines / section separators
+   ========= */
+hr {
+  border: 0;
+  border-top: 1px solid rgba(31, 42, 55, 0.85);
+  margin: 2rem 0;
+}
+
+/* Add subtle top borders to posts/pages content blocks where applicable */
+.post-content,
+.page-content .wrapper {
+  border-top: 0;
+}
+
+/* =========
+   Code blocks
+   ========= */
 code, pre, .highlight {
   background: var(--codebg) !important;
-  color: var(--text) !important;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  color: var(--text-strong) !important;
+  border: 1px solid rgba(31, 42, 55, 0.9);
+  border-radius: 12px;
+}
+
+pre {
+  padding: 1rem 1.1rem;
+  overflow: auto;
 }
 
 pre code {
   background: transparent !important;
-  border: none;
+  border: none !important;
+  color: var(--text-strong) !important;
 }
 
-/* Lists + text */
-p, li {
+/* Inline code */
+p code, li code {
+  padding: 0.15rem 0.35rem;
+  border-radius: 8px;
+}
+
+/* =========
+   Blockquotes (nice security note vibe)
+   ========= */
+blockquote {
+  border-left: 3px solid rgba(88, 166, 255, 0.8);
+  background: rgba(15, 23, 34, 0.35);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
   color: var(--text);
 }
-small, .post-meta, .footer-col, .site-description {
-  color: var(--muted) !important;
-}
 
-/* Make nav links feel more “security UI” */
-.site-nav .page-link {
-  color: var(--text) !important;
-  opacity: 0.9;
-}
-.site-nav .page-link:hover {
-  color: var(--accent) !important;
-}
-
-/* Optional: remove the big top/bottom whitespace lines */
-.page-content {
-  padding-top: 2rem;
-  padding-bottom: 2.5rem;
-}
-
-/* Footer polish */
+/* =========
+   Footer polish
+   ========= */
 .site-footer {
-  border-top: 1px solid #1f2a37;
+  border-top: 1px solid rgba(31, 42, 55, 0.9) !important;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .site-footer .footer-heading {
-  margin: 0 0 0.25rem 0;
-  font-weight: 600;
+  margin: 0 0 0.4rem 0;
+  font-weight: 650;
+  color: var(--text-strong);
   letter-spacing: 0.4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .site-footer a {
@@ -129,6 +211,6 @@ small, .post-meta, .footer-col, .site-description {
 }
 
 .site-footer a:hover {
+  color: var(--accent-hover) !important;
   text-decoration: underline;
 }
-
