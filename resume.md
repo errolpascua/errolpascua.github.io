@@ -98,7 +98,7 @@ Embedded software engineer specializing in cryptography and security-focused dev
 
 ## Focus Areas
 - Embedded Cryptography
-- Hardware Security Modules (HSM / HSM-Lite)
+- Hardware Security Modules
 - Secure Boot & Key Provisioning
 - ACVP & Cryptographic Validation
 - MISRA-C, ASPICE, ISO-21434
