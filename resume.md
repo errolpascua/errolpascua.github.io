@@ -11,7 +11,6 @@ permalink: /resume/
 📧 errol.pascua99@gmail.com  
 
 🔗 [LinkedIn](https://www.linkedin.com/in/errol-pascua)  
-🔗 [GitHub / Portfolio](https://errolpascua.github.io)  
 📄 [Download PDF Resume](resume/Errol_Pascua_Updated.pdf)
 
 ---
