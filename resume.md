@@ -8,11 +8,10 @@ permalink: /resume/
 **Embedded Software Engineer — Cryptography & Security**
 
 📍 Chandler, AZ  
-📞 (480) 252-4571  
 📧 errol.pascua99@gmail.com  
 
 🔗 [LinkedIn](https://www.linkedin.com/in/errol-pascua)  
-🔗 [GitHub / Portfolio](https://errol.pascuagithub.io)  
+🔗 [GitHub / Portfolio](https://errolpascua.github.io)  
 📄 [Download PDF Resume](resume/Errol_Pascua_Updated.pdf)
 
 ---
