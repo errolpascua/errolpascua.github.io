@@ -42,12 +42,20 @@ Outside of engineering, I spend time on activities that balance focus, disciplin
 
 I am a practitioner of **Tabimina Balintawak** and an **apprentice feeder**, which has strengthened my appreciation for timing, precision, and structured progression — skills that translate surprisingly well to technical problem-solving.
 
+## Outside of Work
+
+Outside of engineering, I spend time on activities that balance focus, discipline, and hands-on problem solving.
+
+I am a practitioner of **Tabimina Balintawak** and an **apprentice feeder**, which has strengthened my appreciation for timing, precision, and structured progression — skills that translate well to technical problem-solving.
+
 I also enjoy:
+- 🖨️ 3D printing and designing small functional parts
 - 🎮 Video games
 - 🏂 Snowboarding
 - 🍜 Trying new foods and exploring different cuisines
 - 🧋 Boba
-- 🐕 Spending time with my husky, Azula
+- 🐕 Spending time with my dog
+
 
 These interests help me stay balanced, curious, and engaged both inside and outside of work.
 
