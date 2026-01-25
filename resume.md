@@ -29,7 +29,7 @@ Embedded software engineer specializing in cryptography and security-focused dev
 
 #### Cryptographic Hardware & Firmware Development
 - Ported and integrated cryptographic hardware drivers across multiple Microchip device families (MCU32, dsPIC, HSM, HSM-Lite).
-- Implemented and validated support for **AES (ECB, CTR, GCM, CCM, XTS)**, **SHA-1 / SHA-2**, **CMAC**, **ECDH**, **ECDSA**, **RSA**, **ChaCha20**, **TRNG**, and **PKE** primitives.
+- Implemented and validated support for **AES (ECB, CTR, GCM, CCM, XTS)**, **SHA-1 / SHA-2**, **CMAC**, **HMAC**, **GMAC**, **ECDH**, **ECDSA**, **RSA**, **ChaCha20**, **TRNG**, and **PKE** primitives.
 - Designed wrapper layers aligning device-specific drivers with **Microchip Common Crypto API v4**, supporting both **hardware accelerators and WolfSSL software backends**.
 - Mapped hardware registers, implemented ISR helpers, validated DMA interactions, and debugged cryptographic state machines.
 - Authored benchmark, demo, and validation applications to verify performance, correctness, and reliability.
@@ -62,11 +62,14 @@ Embedded software engineer specializing in cryptography and security-focused dev
 **Engineering Intern**  
 *September 2021 – January 2022*
 
-- Developed a wireless pop-time measurement device using accelerometer and gyroscope data.
-- Designed vinyl film monitoring systems and inductive rifle chronographs.
-- Modified PCB layouts and schematics to integrate additional hardware capabilities.
-- Created documentation, schematics, and embedded firmware for **STM32** and **Microchip** MCUs.
-- Gained hands-on experience in **through-hole and SMD soldering** and electronics prototyping.
+- Developed a **wireless pop-time measurement system** using accelerometer and gyroscope data to detect pitch release timing.
+- Engineered **vinyl film monitoring systems** with sensor-based low-level and empty detection to prevent production downtime.
+- Designed and prototyped an **inductive rifle chronograph** capable of accurately measuring muzzle velocity.
+- Modified **schematics and PCB layouts** to integrate additional hardware features and improve existing designs.
+- Implemented embedded firmware in **C** for **STM32** and **Microchip** microcontrollers, working directly from datasheets and reference manuals.
+- Sourced components from **Digikey** and **Mouser**, assembled prototypes, and performed board bring-up and validation.
+- Created customer-facing documentation, schematics, and test notes to support deployment and handoff.
+- Gained hands-on experience with **through-hole and SMD soldering**, electronics prototyping, and hardware debugging.
 
 ---
 
