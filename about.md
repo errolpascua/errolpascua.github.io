@@ -38,12 +38,6 @@ I tend to gravitate toward roles where correctness and security matter as much a
 
 ## Outside of Work
 
-Outside of engineering, I spend time on activities that balance focus, discipline, and creativity.
-
-I am a practitioner of **Tabimina Balintawak** and an **apprentice feeder**, which has strengthened my appreciation for timing, precision, and structured progression — skills that translate surprisingly well to technical problem-solving.
-
-## Outside of Work
-
 Outside of engineering, I spend time on activities that balance focus, discipline, and hands-on problem solving.
 
 I am a practitioner of **Tabimina Balintawak** and an **apprentice feeder**, which has strengthened my appreciation for timing, precision, and structured progression — skills that translate well to technical problem-solving.
