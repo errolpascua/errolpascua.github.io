@@ -111,3 +111,24 @@ small, .post-meta, .footer-col, .site-description {
   padding-top: 2rem;
   padding-bottom: 2.5rem;
 }
+
+/* Footer polish */
+.site-footer {
+  border-top: 1px solid #1f2a37;
+}
+
+.site-footer .footer-heading {
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.site-footer a {
+  color: var(--accent) !important;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
