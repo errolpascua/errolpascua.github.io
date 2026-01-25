@@ -4,9 +4,6 @@ theme: minima
 
 minima:
   skin: dark
-  social_links:
-    - platform: linkedin
-      user_url: https://www.linkedin.com/in/errol-pascua
 
 author: Errol Pascua
 
