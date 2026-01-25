@@ -27,18 +27,23 @@ Embedded software engineer specializing in cryptography and security-focused dev
 *January 2022 – Present*
 
 #### Cryptographic Hardware & Firmware Development
-- Ported and integrated cryptographic hardware drivers across multiple Microchip device families (MCU32, dsPIC, HSM, HSM-Lite).
+- Ported and integrated cryptographic hardware drivers across multiple Microchip device families (MCU32, dsPIC).
 - Implemented and validated support for **AES (ECB, CTR, GCM, CCM, XTS)**, **SHA-1 / SHA-2**, **CMAC**, **HMAC**, **GMAC**, **ECDH**, **ECDSA**, **RSA**, **ChaCha20**, **TRNG**, and **PKE** primitives.
-- Designed wrapper layers aligning device-specific drivers with **Microchip Common Crypto API v4**, supporting both **hardware accelerators and WolfSSL software backends**.
+- Designed wrapper layers aligning device-specific drivers with **Microchip Crypto v4**, supporting both **hardware accelerators and WolfSSL software backends**.
 - Mapped hardware registers, implemented ISR helpers, validated DMA interactions, and debugged cryptographic state machines.
-- Authored benchmark, demo, and validation applications to verify performance, correctness, and reliability.
-- Strengthened secure boot and key provisioning flows using **HSM**, **TCG DICE**, and hardware-rooted trust architectures.
+- Authored benchmark, demo, and validation applications to verify cryptographic performance, correctness, and reliability.
+- Strengthened secure boot robustness by migrating cryptographic key storage from volatile RAM to non-volatile, ROM-backed storage.
+- Created and maintained **Crypto v4 API documentation**, detailing cryptographic flows, backend selection (HSM vs software), and integration guidance for customer applications.
+- Integrated and supported **ARTEMIS automated testing infrastructure** to execute regression and validation testing across cryptographic drivers and applications.
+
+
+
 
 #### Unit Testing, Verification, & ASPICE SWE1–SWE3
-- Designed an end-to-end **host-side unit testing framework** using **Unity**, **CMake**, **MinGW/GCC**, and **Python**.
+- Designed an end-to-end **host-executed, hardware-mocked unit testing framework** using **Unity**, **CMake**, **GCC/MinGW**, and **Python**.
 - Built extensive unit test suites for AES, SHA, ECC, TRNG, PKE, DMA, and ISR paths using hardware mocks.
-- Implemented **GCOV-based code coverage** with HTML reports (line & branch) to support **ASPICE** and **ISO-21434** compliance.
-- Authored full **ASPICE SWE.1, SWE.2, and SWE.3** work products including requirements, architecture, detailed design, test specifications, and verification matrices.
+- Implemented **GCOV-based code coverage** with HTML reports to support **ASPICE** and **ISO-21434** compliance.
+- Authored full **ASPICE** work products including requirements, architecture, detailed design, test specifications, and verification matrices.
 - Ensured **MISRA-C** compliance through automated static analysis and structured design reviews.
 
 #### Build Systems, Tooling, & Automation
@@ -46,13 +51,10 @@ Embedded software engineer specializing in cryptography and security-focused dev
   - Device configuration
   - Template generation (FMPP)
   - Static library builds
-  - Host-side unit test builds
+  - Host-executed unit test builds
 - Developed and maintained **device-aware CMake toolchains**, including special compiler modes (e.g., `no-short-double`).
 - Built a Python GUI integrating **Cppcheck Premium** and **MPLAB X MISRA-C CLI** to streamline static-analysis workflows.
 - Implemented automated regression testing systems to reduce manual testing effort and improve reliability.
-
-#### Security & Platform Engineering
-- Updated secure key provisioning flows ensuring correct migration of keys from RAM to ROM.
 - Developed the **Firmware Metadata Tool (FWMDT)** used by external customers for HSM provisioning and firmware signing.
 
 ---
