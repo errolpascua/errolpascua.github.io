@@ -105,9 +105,6 @@ We needed a **single, always-visible source of truth**.
   <img src="/images/petvacbrush.png"
        alt="Pet Vacuum Brush"
        style="max-width:300px; width:100%;" />
-  <img src="/images/petvacadapter.jpg"
-       alt="3D Printed Pet Vacuum Adapter"
-       style="max-width:300px; width:100%;" />
 </div>
 
 **Motivation:**  
