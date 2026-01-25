@@ -9,7 +9,7 @@ I’m an **Embedded / Security Engineer** focused on building **secure, reliable
 
 Professionally, I work on **hardware-accelerated cryptography** and the tooling around it: driver integration, validation, and automated test frameworks. I like problems that live at the boundary between **hardware + firmware + security requirements**, especially when they involve tricky timing, DMA, interrupts, and deterministic behavior.
 
-If you’re hiring for embedded security, platform security, or firmware roles, this site is a quick overview of what I build and how I work.
+This site is a quick overview of what I build and how I work.
 
 ### Quick links
 - **[Resume](/resume/)**
