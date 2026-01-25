@@ -45,7 +45,7 @@ I am a practitioner of **Balintawak** and an **apprentice feeder**, which has st
 I also have a strong interest in **Japanese performance cars**, particularly **turbocharged four-cylinder platforms and Subarus**, and enjoy understanding how mechanical and control systems interact and how design tradeoffs affect performance and reliability.
 
 In my free time, I enjoy:
-- 🖨️ **Designing and 3D-printing small functional parts**
+- 🖨️ Designing and 3D-printing small functional parts
 - 🛠️ Hands-on tinkering and learning through building
 - 🎮 Video games and other problem-solving oriented games
 - 🏂 Snowboarding
