@@ -5,10 +5,13 @@ theme: minima
 minima:
   skin: dark
 
-author: Errol Pascua
-
 header_pages:
   - resume.md
   - projects.md
   - about.md
   - linkedin.md
+
+social_links:
+  - platform: linkedin
+    user_url: https://www.linkedin.com/in/errol-pascua
+
