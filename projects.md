@@ -50,7 +50,7 @@ These projects reflect my interest in hands-on engineering, rapid iteration, and
 
 ### Mini Guitar Hero Controllers
 
-![Mini Guitar Hero Controller](ghcontroller.jpg)
+![Mini Guitar Hero Controller](/images/ghcontroller.jpg)
 
 **Motivation:**  
 Commercial Guitar Hero controllers have become surprisingly expensive, and I already owned a 3D printer and many of the required electronic components.
@@ -72,7 +72,7 @@ Rather than purchasing new controllers, it was cheaper and more interesting to b
 
 ### Shared Household Calendar (Magic Mirror-Style Display)
 
-![Shared Calendar Display](calendar.jpg)
+![Shared Calendar Display](/images/calendar.jpg)
 
 **Motivation:**  
 At one point, my girlfriend, her parents, and I were all living in the same house. Coordinating appointments, vacations, and medical visits across multiple people became difficult using individual calendars.
@@ -96,8 +96,8 @@ We needed a **single, always-visible source of truth**.
 
 ### Shop Vac → Pet Vacuum Adapter
 
-![Pet Vacuum Brush](petvacbrush.png)
-![3D Printed Adapter](petvacadapter.jpg)
+![Pet Vacuum Brush](/images/petvacbrush.png)
+![3D Printed Adapter](/images/petvacadapter.jpg)
 
 **Motivation:**  
 Pet grooming vacuum attachments are convenient but often limited by weak suction and small collection capacity. I already owned a shop vacuum with significantly stronger suction power and a much larger capacity.
@@ -112,9 +112,8 @@ The goal was to reduce grooming time and avoid frequent stops to empty the vacuu
 **Why It Was Worth Doing:**
 - Significantly stronger suction improved grooming effectiveness
 - Larger capacity reduced interruptions during grooming sessions
-- Saved time compared to using standard pet grooming vacuums
+- Less time wasted grooming
 - Reinforced practical mechanical design and rapid iteration skills
-
 
 ---
 
