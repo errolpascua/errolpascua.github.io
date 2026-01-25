@@ -2,10 +2,14 @@ title: "Errol Pascua"
 description: "Embedded / Security Engineer — Resume & Projects"
 theme: minima
 
-minima:
-  skin: dark
-
 header_pages:
   - resume.md
   - projects.md
   - about.md
+
+author:
+  name: Errol Pascua
+
+social_links:
+  - platform: linkedin
+    user_url: https://www.linkedin.com/in/errol-pascua
