@@ -6,7 +6,8 @@ permalink: /projects/
 
 ## Selected Engineering Projects
 
-These projects reflect the types of systems I work on professionally, focusing on embedded security, correctness, and tooling. Descriptions are intentionally high-level and non-proprietary.
+These projects reflect my interest in hands-on engineering, rapid iteration, and building practical tools.  
+Professional projects are described at a high level and avoid proprietary details.
 
 ---
 
@@ -50,10 +51,12 @@ These projects reflect my interest in hands-on engineering, rapid iteration, and
 
 ### Mini Guitar Hero Controllers
 
-![Mini Guitar Hero Controller](/images/ghcontroller.jpg)
+<img src="/images/ghcontroller.jpg"
+     alt="Mini Guitar Hero Controller"
+     style="max-width:600px; width:100%; display:block; margin:1.5rem auto;" />
 
 **Motivation:**  
-Commercial Guitar Hero controllers have become surprisingly expensive, and I already owned a 3D printer and many of the required electronic components.
+Commercial Guitar Hero controllers have become surprisingly expensive, and I already owned a 3D printer along with many of the required electronic components.
 
 Rather than purchasing new controllers, it was cheaper and more interesting to build my own.
 
@@ -66,13 +69,15 @@ Rather than purchasing new controllers, it was cheaper and more interesting to b
 **Why It Was Worth Doing:**
 - Reduced cost compared to buying original controllers
 - Full control over form factor and input layout
-- Reinforced firmware + hardware + mechanical integration skills
+- Reinforced firmware, hardware, and mechanical integration skills
 
 ---
 
-### Shared Household Calendar (Magic Mirror-Style Display)
+### Shared Household Calendar (Magic Mirror–Style Display)
 
-![Shared Calendar Display](/images/calendar.jpg)
+<img src="/images/calendar.jpg"
+     alt="Shared Household Calendar Display"
+     style="max-width:600px; width:100%; display:block; margin:1.5rem auto;" />
 
 **Motivation:**  
 At one point, my girlfriend, her parents, and I were all living in the same house. Coordinating appointments, vacations, and medical visits across multiple people became difficult using individual calendars.
@@ -96,8 +101,14 @@ We needed a **single, always-visible source of truth**.
 
 ### Shop Vac → Pet Vacuum Adapter
 
-![Pet Vacuum Brush](/images/petvacbrush.png)
-![3D Printed Adapter](/images/petvacadapter.jpg)
+<div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin:1.5rem 0;">
+  <img src="/images/petvacbrush.png"
+       alt="Pet Vacuum Brush"
+       style="max-width:300px; width:100%;" />
+  <img src="/images/petvacadapter.jpg"
+       alt="3D Printed Pet Vacuum Adapter"
+       style="max-width:300px; width:100%;" />
+</div>
 
 **Motivation:**  
 Pet grooming vacuum attachments are convenient but often limited by weak suction and small collection capacity. I already owned a shop vacuum with significantly stronger suction power and a much larger capacity.
@@ -110,7 +121,7 @@ The goal was to reduce grooming time and avoid frequent stops to empty the vacuu
 - Designed the part to be durable enough for repeated use while maintaining a good seal
 
 **Why It Was Worth Doing:**
-- Significantly stronger suction improved grooming effectiveness
+- Stronger suction improved grooming effectiveness
 - Larger capacity reduced interruptions during grooming sessions
 - Less time wasted grooming
 - Reinforced practical mechanical design and rapid iteration skills
