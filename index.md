@@ -30,6 +30,3 @@ This site is a quick overview of what I work on and how I work.
 
 ---
 
-### Current focus
-
-Independently implementing a **TCG DICE attestation subsystem** for PIC32CM SG -- creating all ASPICE work products and proof-of-concept firmware. Also looking for my next role where I can grow with stronger mentorship and clearer technical direction.
