@@ -40,21 +40,11 @@ I tend to gravitate toward roles where correctness and reliability matter, and w
 
 ## Outside of Work
 
-Outside of engineering, I spend time on activities that balance focus, discipline, and hands-on problem solving.
+I'm a practitioner of **Balintawak** (Filipino stick fighting) and an **apprentice feeder**. It's a discipline built around structured progression, controlled responses, and reading your opponent in real time. It's the thing I do that's the least like sitting at a desk, and I love it.
 
-I am a practitioner of **Balintawak** and an **apprentice feeder**, which has strengthened my appreciation for **timing, precision, patience, and calmness under pressure**. The discipline emphasizes structured progression, controlled responses, and clear decision-making in dynamic situations -- skills that translate directly to technical problem-solving and debugging under time constraints.
+I'm also into **Japanese performance cars** -- particularly turbocharged four-cylinder platforms and Subarus. I like understanding how the mechanical and electrical systems work together and why certain design tradeoffs were made.
 
-I also have a strong interest in **Japanese performance cars**, particularly **turbocharged four-cylinder platforms and Subarus**, and enjoy understanding how mechanical and control systems interact and how design tradeoffs affect performance and reliability.
-
-In my free time, I enjoy:
-
-- Designing and 3D-printing small functional parts
-- Hands-on tinkering and learning through building
-- Video games and other problem-solving oriented games
-- Snowboarding
-- Spending time with my dog
-
-These interests help me stay balanced, curious, and engaged both inside and outside of work.
+When I'm not doing either of those, I'm usually **3D-printing** functional parts, snowboarding, or hanging out with my dog.
 
 ---
 
