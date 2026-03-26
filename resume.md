@@ -5,13 +5,13 @@ permalink: /resume/
 ---
 
 # Errol Pascua
-**Embedded Software Engineer — Cryptography & Security**
+**Embedded Software Engineer -- Cryptography & Security**
 
- Chandler, AZ  
- errol.pascua99@gmail.com  
+Chandler, AZ  
+errol.pascua99@gmail.com  
 
- [LinkedIn](https://www.linkedin.com/in/errol-pascua)  
- [Download PDF Resume](resume/Errol_Pascua.pdf)
+[LinkedIn](https://www.linkedin.com/in/errol-pascua)  
+[Download PDF Resume](resume/Errol_Pascua.pdf)
 
 ---
 
@@ -22,24 +22,24 @@ Embedded firmware engineer with 4+ years supporting cryptographic subsystems on 
 
 ## Professional Experience
 
-### **Microchip Technology Inc.** — Chandler, AZ  
-**Software Engineer — Cryptography & Security**  
-*January 2022 – Present*
+### **Microchip Technology Inc.** -- Chandler, AZ
+**Software Engineer -- Cryptography & Security**
+*January 2022 -- Present*
 
 #### Firmware Porting & Application Development
 - Ported existing cryptographic driver code from a shared-IP device to PIC32CM SG by creating xc32/CMake build scripts, mapping hardware registers to the target silicon, and validating correct operation through demo applications and test vector suites.
 - Built and maintained demo and reference applications demonstrating common crypto API usage (**AES**, **SHA**, **ECDH**, **ECDSA**, **TRNG**) across multiple PIC32 families (PIC32CM SG, PIC32CK SG01, PIC32CX MTG, PIC32CZ CA90), serving as proof-of-concept examples and customer-facing documentation.
-- Developed a secure messaging demo application using existing common crypto APIs — implementing ECDH key exchange, AES-256-GCM encryption, SHA-384 hashing, and ECDSA signing across TrustZone secure/non-secure boundaries on PIC32CM SG.
+- Developed a secure messaging demo application using existing common crypto APIs -- implementing ECDH key exchange, AES-256-GCM encryption, SHA-384 hashing, and ECDSA signing across TrustZone secure/non-secure boundaries on PIC32CM SG.
 - Modified existing secure boot use case (Python and C) to change cryptographic key storage from ROM-backed to RAM-based approach for provisioning flexibility.
 - Updated existing demo applications to work with latest compiled static library releases (`.a` files), maintaining header compatibility and verifying functionality across library version changes.
-- Independently implementing TCG DICE attestation subsystem for PIC32CM SG — creating all ASPICE work products (requirements, design documents, test plans) and building proof-of-concept firmware by adapting an existing DICE framework originally developed for a different target.
+- Independently implementing TCG DICE attestation subsystem for PIC32CM SG -- creating all ASPICE work products (requirements, design documents, test plans) and building proof-of-concept firmware by adapting an existing DICE framework originally developed for a different target.
 
 #### Validation, Debugging & Code Quality
 - Validated cryptographic API functionality using **ACVP** test vector suites run through automated tooling, comparing expected outputs against NIST-standard reference values across multiple crypto algorithms.
 - Expanded an existing command-line unit test framework (**Unity**, **CTest**) to generate HTML coverage reports with color-coded line, call, and branch coverage using **GCOV**, improving visibility into untested code paths.
 - Wrote comprehensive unit test suites covering the entire HSM-Lite cryptographic driver (AES, SHA, ECC, TRNG, DMA, ISR paths) using **Unity/CMock** with hardware mocks.
-- Debugged an NVIC interrupt collision where shared interrupt handlers caused incorrect ISR routing — identified the issue using a Saleae logic analyzer with GPIO pin toggling to observe the stuck interrupt, then resolved it by separating the handler registrations.
-- Enforced **MISRA-C** compliance across embedded codebases using **Cppcheck Premium** and **Coverity**, triaging 70–120+ findings per analysis run, resolving violations, and documenting justified deviations.
+- Debugged an NVIC interrupt collision where shared interrupt handlers caused incorrect ISR routing -- identified the issue using a Saleae logic analyzer with GPIO pin toggling to observe the stuck interrupt, then resolved it by separating the handler registrations.
+- Enforced **MISRA-C** compliance across embedded codebases using **Cppcheck Premium** and **Coverity**, triaging 70--120+ findings per analysis run, resolving violations, and documenting justified deviations.
 - Ported the **ARTEMIS** automated regression test framework to four target devices (PIC32CM SG, PIC32CK SG01, PIC32CX MTG, PIC32CZ CA90), configuring power-cycle sequencing, IPE programming, and serial output parsing for pass/fail reporting.
 
 #### Tooling, Documentation & Process
@@ -47,15 +47,15 @@ Embedded firmware engineer with 4+ years supporting cryptographic subsystems on 
 - Created a Python GUI wrapper for an existing internal firmware metadata tool (FWMDT), simplifying the interface for HSM provisioning address configuration.
 - Built Python CLI tooling for static analysis pipelines, including configuration management (YAML/JSON parsing), XML report processing, and wrapper scripts for tool execution.
 - Created API reference documentation and user guides for common crypto APIs used by internal teams and customers.
-- Backfilled **ASPICE** SWE1–SWE3 work products (requirements specifications, architecture documents, detailed designs, test plans) for existing work streams that lacked formal documentation.
+- Backfilled **ASPICE** SWE1--SWE3 work products (requirements specifications, architecture documents, detailed designs, test plans) for existing work streams that lacked formal documentation.
 - Supported driver release processes including bug tracking, validation review, release preparation, and ticket management across shared repositories.
 - Participated in PR-based code review workflows on Bitbucket, Agile standups, and sprint ceremonies; coordinated cross-team dependencies with the DS PICs team on shared-IP driver integration.
 
 ---
 
-### **Southwest Engineering Concepts** — Chandler, AZ  
-**Engineering Intern**  
-*September 2021 – January 2022*
+### **Southwest Engineering Concepts** -- Chandler, AZ
+**Engineering Intern**
+*September 2021 -- January 2022*
 
 - Assisted in developing embedded products from requirements through prototyping, including a vinyl film monitoring system, an inductive rifle chronograph, and a wireless pop-timer redesign.
 - Designed schematics and PCB layouts under guidance of a principal engineer; sourced components from Digikey/Mouser, assembled prototypes, and performed board bring-up.
@@ -66,8 +66,8 @@ Embedded firmware engineer with 4+ years supporting cryptographic subsystems on 
 
 ## Education
 
-**Arizona State University** — Tempe, AZ  
-**B.S.E. Computer Systems Engineering (Cybersecurity Concentration)**  
+**Arizona State University** -- Tempe, AZ
+**B.S.E. Computer Systems Engineering (Cybersecurity Concentration)**
 *May 2021*
 
 ---
