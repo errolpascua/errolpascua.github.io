@@ -7,55 +7,49 @@ permalink: /resume/
 # Errol Pascua
 **Embedded Software Engineer — Cryptography & Security**
 
-📍 Chandler, AZ  
-📧 errol.pascua99@gmail.com  
+ Chandler, AZ  
+ errol.pascua99@gmail.com  
 
-🔗 [LinkedIn](https://www.linkedin.com/in/errol-pascua)  
-📄 [Download PDF Resume](resume/Errol_Pascua.pdf)
+ [LinkedIn](https://www.linkedin.com/in/errol-pascua)  
+ [Download PDF Resume](resume/Errol_Pascua.pdf)
 
 ---
 
-## Objective
-Embedded software engineer specializing in cryptography and security-focused development, with experience building, validating, and automating hardware-accelerated crypto systems for production microcontrollers. Seeking to contribute to secure, high-reliability embedded platforms.
+## Summary
+Embedded firmware engineer with 4+ years supporting cryptographic subsystems on 32-bit ARM microcontrollers across multiple PIC32 families. Experienced porting driver code across shared-IP silicon targets, building and maintaining demo and reference applications, validating crypto API functionality through automated test vector suites, and enforcing MISRA-C compliance through static analysis. Currently independently implementing a TCG DICE attestation subsystem with full ASPICE work product ownership. U.S. Citizen.
 
 ---
 
 ## Professional Experience
 
 ### **Microchip Technology Inc.** — Chandler, AZ  
-**Embedded Software Engineer — Cryptography & Security**  
+**Software Engineer — Cryptography & Security**  
 *January 2022 – Present*
 
-#### Cryptographic Hardware & Firmware Development
-- Ported and integrated cryptographic hardware drivers across multiple Microchip device families (MCU32, dsPIC).
-- Implemented and validated support for **AES (ECB, CTR, GCM, CCM, XTS)**, **SHA-1 / SHA-2**, **CMAC**, **HMAC**, **GMAC**, **ECDH**, **ECDSA**, **RSA**, **ChaCha20**, **TRNG**, and **PKE** primitives.
-- Designed wrapper layers aligning device-specific drivers with **Microchip Crypto v4**, supporting both **hardware accelerators and WolfSSL software backends**.
-- Mapped hardware registers, implemented ISR helpers, validated DMA interactions, and debugged cryptographic state machines.
-- Authored benchmark, demo, and validation applications to verify cryptographic performance, correctness, and reliability.
-- Strengthened secure boot robustness by migrating cryptographic key storage from volatile RAM to non-volatile, ROM-backed storage.
-- Created and maintained **Crypto v4 API documentation**, detailing cryptographic flows, backend selection (HSM vs software), and integration guidance for customer applications.
-- Integrated and supported **ARTEMIS automated testing infrastructure** to execute regression and validation testing across cryptographic drivers and applications.
+#### Firmware Porting & Application Development
+- Ported existing cryptographic driver code from a shared-IP device to PIC32CM SG by creating xc32/CMake build scripts, mapping hardware registers to the target silicon, and validating correct operation through demo applications and test vector suites.
+- Built and maintained demo and reference applications demonstrating common crypto API usage (**AES**, **SHA**, **ECDH**, **ECDSA**, **TRNG**) across multiple PIC32 families (PIC32CM SG, PIC32CK SG01, PIC32CX MTG, PIC32CZ CA90), serving as proof-of-concept examples and customer-facing documentation.
+- Developed a secure messaging demo application using existing common crypto APIs — implementing ECDH key exchange, AES-256-GCM encryption, SHA-384 hashing, and ECDSA signing across TrustZone secure/non-secure boundaries on PIC32CM SG.
+- Modified existing secure boot use case (Python and C) to change cryptographic key storage from ROM-backed to RAM-based approach for provisioning flexibility.
+- Updated existing demo applications to work with latest compiled static library releases (`.a` files), maintaining header compatibility and verifying functionality across library version changes.
+- Independently implementing TCG DICE attestation subsystem for PIC32CM SG — creating all ASPICE work products (requirements, design documents, test plans) and building proof-of-concept firmware by adapting an existing DICE framework originally developed for a different target.
 
+#### Validation, Debugging & Code Quality
+- Validated cryptographic API functionality using **ACVP** test vector suites run through automated tooling, comparing expected outputs against NIST-standard reference values across multiple crypto algorithms.
+- Expanded an existing command-line unit test framework (**Unity**, **CTest**) to generate HTML coverage reports with color-coded line, call, and branch coverage using **GCOV**, improving visibility into untested code paths.
+- Wrote comprehensive unit test suites covering the entire HSM-Lite cryptographic driver (AES, SHA, ECC, TRNG, DMA, ISR paths) using **Unity/CMock** with hardware mocks.
+- Debugged an NVIC interrupt collision where shared interrupt handlers caused incorrect ISR routing — identified the issue using a Saleae logic analyzer with GPIO pin toggling to observe the stuck interrupt, then resolved it by separating the handler registrations.
+- Enforced **MISRA-C** compliance across embedded codebases using **Cppcheck Premium** and **Coverity**, triaging 70–120+ findings per analysis run, resolving violations, and documenting justified deviations.
+- Ported the **ARTEMIS** automated regression test framework to four target devices (PIC32CM SG, PIC32CK SG01, PIC32CX MTG, PIC32CZ CA90), configuring power-cycle sequencing, IPE programming, and serial output parsing for pass/fail reporting.
 
-
-
-#### Unit Testing, Verification, & ASPICE SWE1–SWE3
-- Designed an end-to-end **host-executed, hardware-mocked unit testing framework** using **Unity**, **CMake**, **GCC/MinGW**, and **Python**.
-- Built extensive unit test suites for AES, SHA, ECC, TRNG, PKE, DMA, and ISR paths using hardware mocks.
-- Implemented **GCOV-based code coverage** with HTML reports to support **ASPICE** and **ISO-21434** compliance.
-- Authored full **ASPICE** work products including requirements, architecture, detailed design, test specifications, and verification matrices.
-- Ensured **MISRA-C** compliance through automated static analysis and structured design reviews.
-
-#### Build Systems, Tooling, & Automation
-- Created Python-based build infrastructure automating:
-  - Device configuration
-  - Template generation (FMPP)
-  - Static library builds
-  - Host-executed unit test builds
-- Developed and maintained **device-aware CMake toolchains**, including special compiler modes (e.g., `no-short-double`).
-- Built a Python GUI integrating **Cppcheck Premium** and **MPLAB X MISRA-C CLI** to streamline static-analysis workflows.
-- Implemented automated regression testing systems to reduce manual testing effort and improve reliability.
-- Developed the **Firmware Metadata Tool (FWMDT)** used by external customers for HSM provisioning and firmware signing.
+#### Tooling, Documentation & Process
+- Built Python GUI wrapper tools for **Cppcheck Premium** and **Coverity** static analysis workflows, adding configuration persistence, dark-themed UIs, and one-click report generation to streamline local MISRA scanning.
+- Created a Python GUI wrapper for an existing internal firmware metadata tool (FWMDT), simplifying the interface for HSM provisioning address configuration.
+- Built Python CLI tooling for static analysis pipelines, including configuration management (YAML/JSON parsing), XML report processing, and wrapper scripts for tool execution.
+- Created API reference documentation and user guides for common crypto APIs used by internal teams and customers.
+- Backfilled **ASPICE** SWE1–SWE3 work products (requirements specifications, architecture documents, detailed designs, test plans) for existing work streams that lacked formal documentation.
+- Supported driver release processes including bug tracking, validation review, release preparation, and ticket management across shared repositories.
+- Participated in PR-based code review workflows on Bitbucket, Agile standups, and sprint ceremonies; coordinated cross-team dependencies with the DS PICs team on shared-IP driver integration.
 
 ---
 
@@ -63,43 +57,45 @@ Embedded software engineer specializing in cryptography and security-focused dev
 **Engineering Intern**  
 *September 2021 – January 2022*
 
-- Developed a **wireless pop-time measurement system** using accelerometer and gyroscope data to detect pitch release timing.
-- Engineered **vinyl film monitoring systems** with sensor-based low-level and empty detection to prevent production downtime.
-- Designed and prototyped an **inductive rifle chronograph** capable of accurately measuring muzzle velocity.
-- Modified **schematics and PCB layouts** to integrate additional hardware features and improve existing designs.
-- Implemented embedded firmware in **C** for **STM32** and **Microchip** microcontrollers, working directly from datasheets and reference manuals.
-- Sourced components from **Digikey** and **Mouser**, assembled prototypes, and performed board bring-up and validation.
-- Created customer-facing documentation, schematics, and test notes to support deployment and handoff.
-- Gained hands-on experience with **through-hole and SMD soldering**, electronics prototyping, and hardware debugging.
+- Assisted in developing embedded products from requirements through prototyping, including a vinyl film monitoring system, an inductive rifle chronograph, and a wireless pop-timer redesign.
+- Designed schematics and PCB layouts under guidance of a principal engineer; sourced components from Digikey/Mouser, assembled prototypes, and performed board bring-up.
+- Implemented firmware in C for **dsPIC** and **STM32** microcontrollers, translating datasheets and hardware specifications into working application software.
+- Gained hands-on experience with through-hole and SMD soldering, electronics prototyping, and hardware debugging.
 
 ---
 
 ## Education
 
 **Arizona State University** — Tempe, AZ  
-**B.S.E. Computer Systems Engineering (Cybersecurity)**  
+**B.S.E. Computer Systems Engineering (Cybersecurity Concentration)**  
 *May 2021*
 
 ---
 
 ## Technical Skills
 
-### Programming Languages
-- C, C++, Python, Java, Assembly
+### Languages
+C, C++, Python, Bash/Shell scripting
 
-### Software & Hardware Tools
-- Git, Jenkins, Atlassian Suite (Jira, Confluence, Bitbucket)
-- Polarion, Tridion Docs Publication Manager
-- MPLAB X IDE, Segger Embedded Studio, STM32CubeIDE
-- Logic analyzers, oscilloscopes, Segger J-Link
-- Hardware bring-up, debugging, and soldering (TH & SMD)
+### Platforms
+32-bit ARM Cortex-M (PIC32CM SG, PIC32CK SG01, PIC32CX MTG, PIC32CZ CA90, SAM), STM32, Bare-Metal Firmware, TrustZone Secure/Non-Secure Environments, HSM-Lite Hardware Accelerators
+
+### Build & Tooling
+xc32, GCC, CMake, MPLAB X IDE, Segger Embedded Studio, STM32CubeIDE, Git, Bitbucket, Jira, Confluence, Polarion, Tridion Docs
+
+### Testing & Quality
+ACVP Test Vector Validation, MISRA-C Compliance (Cppcheck Premium, Coverity), Unity/CMock, GCOV Coverage Reporting, ASPICE-Aligned Processes
+
+### Debug & Instrumentation
+Saleae Logic Analyzer, MPLAB PKOB On-Board Debugger, Segger J-Link, Oscilloscope, GPIO-Based Signal Tracing, Soldering (TH & SMD)
 
 ---
 
 ## Focus Areas
-- Embedded Cryptography
-- Hardware Security Modules
+- Cryptographic Firmware (AES, SHA, ECDH, ECDSA, TRNG)
+- Secure Architectures (TrustZone, HSM)
 - Secure Boot & Key Provisioning
+- TCG DICE Attestation
 - ACVP & Cryptographic Validation
-- MISRA-C, ASPICE
-- Test Automation & CI for Embedded Systems
+- MISRA-C & ASPICE Compliance
+- Test Automation for Embedded Systems
