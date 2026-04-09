@@ -32,14 +32,14 @@ Embedded firmware engineer with 4+ years supporting cryptographic subsystems on 
 - Developed a secure messaging demo application using existing common crypto APIs -- implementing ECDH key exchange, AES-256-GCM encryption, SHA-384 hashing, and ECDSA signing across TrustZone secure/non-secure boundaries on PIC32CM SG.
 - Modified existing secure boot use case (Python and C) to change cryptographic key storage from ROM-backed to RAM-based approach for provisioning flexibility.
 - Updated existing demo applications to work with latest compiled static library releases (`.a` files), maintaining header compatibility and verifying functionality across library version changes.
-- Independently implementing TCG DICE attestation subsystem for PIC32CM SG -- creating all ASPICE work products (requirements, design documents, test plans) and building proof-of-concept firmware by adapting an existing DICE framework originally developed for a different target.
+- Independently implementing TCG DICE attestation subsystem for PIC32CM SG *(in progress)* -- scoping all ASPICE work products (requirements, design documents, test plans) and adapting an existing DICE framework originally developed for a different target.
 
 #### Validation, Debugging & Code Quality
 - Validated cryptographic API functionality using **ACVP** test vector suites run through automated tooling, comparing expected outputs against NIST-standard reference values across multiple crypto algorithms.
 - Expanded an existing command-line unit test framework (**Unity**, **CTest**) to generate HTML coverage reports with color-coded line, call, and branch coverage using **GCOV**, improving visibility into untested code paths.
 - Wrote comprehensive unit test suites covering the entire HSM-Lite cryptographic driver (AES, SHA, ECC, TRNG, DMA, ISR paths) using **Unity/CMock** with hardware mocks.
 - Debugged an NVIC interrupt collision where shared interrupt handlers caused incorrect ISR routing -- identified the issue using a Saleae logic analyzer with GPIO pin toggling to observe the stuck interrupt, then resolved it by separating the handler registrations.
-- Enforced **MISRA-C** compliance across embedded codebases using **Cppcheck Premium** and **Coverity**, triaging 70--120+ findings per analysis run, resolving violations, and documenting justified deviations.
+- Enforced **MISRA-C** compliance across embedded codebases using **Cppcheck Premium** and **Coverity**, triaging 100--300+ findings per analysis run, resolving violations, and documenting justified deviations.
 - Ported the **ARTEMIS** automated regression test framework to four target devices (PIC32CM SG, PIC32CK SG01, PIC32CX MTG, PIC32CZ CA90), configuring power-cycle sequencing, IPE programming, and serial output parsing for pass/fail reporting.
 
 #### Tooling, Documentation & Process
