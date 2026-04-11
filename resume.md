@@ -16,7 +16,7 @@ errol.pascua99@gmail.com
 ---
 
 ## Summary
-Embedded firmware engineer with 4+ years supporting cryptographic subsystems on 32-bit ARM microcontrollers across multiple PIC32 families. Experienced porting driver code across shared-IP silicon targets, building and maintaining demo and reference applications, validating crypto API functionality through automated test vector suites, and enforcing MISRA-C compliance through static analysis. Currently independently implementing a TCG DICE attestation subsystem with full ASPICE work product ownership. U.S. Citizen.
+Embedded firmware engineer with 4+ years supporting cryptographic subsystems on 32-bit ARM microcontrollers across multiple PIC32 families. Experienced porting driver code across shared-IP silicon targets, building and maintaining demo and reference applications, validating crypto API functionality through automated test vector suites, and enforcing MISRA-C compliance through static analysis. U.S. Citizen.
 
 ---
 
@@ -32,7 +32,6 @@ Embedded firmware engineer with 4+ years supporting cryptographic subsystems on 
 - Developed a secure messaging demo application using existing common crypto APIs -- implementing ECDH key exchange, AES-256-GCM encryption, SHA-384 hashing, and ECDSA signing across TrustZone secure/non-secure boundaries on PIC32CM SG.
 - Modified existing secure boot use case (Python and C) to change cryptographic key storage from ROM-backed to RAM-based approach for provisioning flexibility.
 - Updated existing demo applications to work with latest compiled static library releases (`.a` files), maintaining header compatibility and verifying functionality across library version changes.
-- Independently implementing TCG DICE attestation subsystem for PIC32CM SG *(in progress)* -- scoping all ASPICE work products (requirements, design documents, test plans) and adapting an existing DICE framework originally developed for a different target.
 
 #### Validation, Debugging & Code Quality
 - Validated cryptographic API functionality using **ACVP** test vector suites run through automated tooling, comparing expected outputs against NIST-standard reference values across multiple crypto algorithms.
@@ -95,7 +94,6 @@ Saleae Logic Analyzer, MPLAB PKOB On-Board Debugger, Segger J-Link, Oscilloscope
 - Cryptographic Firmware (AES, SHA, ECDH, ECDSA, TRNG)
 - Secure Architectures (TrustZone, HSM)
 - Secure Boot & Key Provisioning
-- TCG DICE Attestation
 - ACVP & Cryptographic Validation
 - MISRA-C & ASPICE Compliance
 - Test Automation for Embedded Systems
