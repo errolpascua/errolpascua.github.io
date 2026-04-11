@@ -55,16 +55,27 @@ body {
   z-index: 0;
 }
 
-/* Content areas must be transparent so the canvas shows through */
-.wrapper,
+/* Full-width areas transparent so canvas shows through */
 .page-content,
-.post-content {
+.post-content,
+.home {
   background: transparent !important;
   position: relative;
   z-index: 1;
 }
 
-/* Header and footer stay opaque so they cover the canvas cleanly */
+/* The content wrapper is the readable dark panel in the center */
+.page-content > .wrapper {
+  background: rgba(11, 15, 20, 0.93) !important;
+  border-left: 1px solid rgba(31, 42, 55, 0.7);
+  border-right: 1px solid rgba(31, 42, 55, 0.7);
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+  padding-top: 2.5rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Header and footer stay fully opaque */
 .site-header,
 .site-footer,
 .site-nav {
