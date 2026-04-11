@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/xp.css' | relative_url }}">
+</head>
+<body>
+
+  <!-- Desktop -->
+  <div id="desktop">
+
+    <div class="d-icon" data-url="{{ '/resume/' | relative_url }}" data-title="Resume">
+      <img class="d-icon-img" src="https://www.freeiconspng.com/uploads/internet-explorer-icon-13.png" alt="IE">
+      <span class="d-icon-label">Resume</span>
+    </div>
+
+    <div class="d-icon" data-url="{{ '/projects/' | relative_url }}" data-title="Projects">
+      <img class="d-icon-img" src="https://www.freeiconspng.com/uploads/internet-explorer-icon-13.png" alt="IE">
+      <span class="d-icon-label">Projects</span>
+    </div>
+
+    <div class="d-icon" data-url="{{ '/about/' | relative_url }}" data-title="About">
+      <img class="d-icon-img" src="https://www.freeiconspng.com/uploads/internet-explorer-icon-13.png" alt="IE">
+      <span class="d-icon-label">About Me</span>
+    </div>
+
+  </div>
+
+  <!-- IE windows injected here -->
+  <div id="windows"></div>
+
+  <!-- Taskbar -->
+  <div id="taskbar">
+
+    <button id="start-btn">
+      <svg class="win-flag" width="18" height="18" viewBox="0 0 18 18">
+        <rect x="1"   y="1"   width="7.5" height="7.5" rx="1" fill="#F25022"/>
+        <rect x="9.5" y="1"   width="7.5" height="7.5" rx="1" fill="#7FBA00"/>
+        <rect x="1"   y="9.5" width="7.5" height="7.5" rx="1" fill="#00A4EF"/>
+        <rect x="9.5" y="9.5" width="7.5" height="7.5" rx="1" fill="#FFB900"/>
+      </svg>
+      <span>start</span>
+    </button>
+
+    <div id="tray-windows"></div>
+
+    <div id="systray">
+      <svg width="14" height="14" viewBox="0 0 14 14" style="margin-right:5px;opacity:0.9">
+        <polygon points="1,5 5,5 8,2 8,12 5,9 1,9" fill="#fff"/>
+        <path d="M9.5,4.5 Q11.5,7 9.5,9.5" stroke="#fff" stroke-width="1.2" fill="none"/>
+        <path d="M10.8,3.2 Q13.2,7 10.8,10.8" stroke="#fff" stroke-width="1.1" fill="none" opacity="0.65"/>
+      </svg>
+      <div id="clock">00:00</div>
+    </div>
+  </div>
+
+  <!-- Start Menu -->
+  <div id="start-menu" class="hidden">
+
+    <!-- Blue header with user avatar + name -->
+    <div class="sm-header">
+      <div class="sm-avatar">
+        <svg width="42" height="42" viewBox="0 0 42 42">
+          <rect width="42" height="42" rx="4" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="21" cy="14" r="9" fill="rgba(255,255,255,0.85)"/>
+          <ellipse cx="21" cy="38" rx="15" ry="10" fill="rgba(255,255,255,0.85)"/>
+        </svg>
+      </div>
+      <span class="sm-username">Errol Pascua</span>
+    </div>
+
+    <!-- Two-column body -->
+    <div class="sm-body">
+
+      <!-- LEFT: white programs panel -->
+      <div class="sm-left">
+
+        <div class="sm-item sm-clickable" data-url="{{ '/resume/' | relative_url }}" data-title="Resume">
+          <img class="sm-ie-icon" src="https://www.freeiconspng.com/uploads/internet-explorer-icon-13.png" alt="IE">
+          <div>
+            <div class="sm-item-title">Internet Explorer</div>
+            <div class="sm-item-sub">Resume</div>
+          </div>
+        </div>
+
+        <div class="sm-item sm-clickable" data-url="{{ '/projects/' | relative_url }}" data-title="Projects">
+          <img class="sm-ie-icon" src="https://www.freeiconspng.com/uploads/internet-explorer-icon-13.png" alt="IE">
+          <div>
+            <div class="sm-item-title">Internet Explorer</div>
+            <div class="sm-item-sub">Projects</div>
+          </div>
+        </div>
+
+        <div class="sm-item sm-clickable" data-url="{{ '/about/' | relative_url }}" data-title="About Me">
+          <img class="sm-ie-icon" src="https://www.freeiconspng.com/uploads/internet-explorer-icon-13.png" alt="IE">
+          <div>
+            <div class="sm-item-title">Internet Explorer</div>
+            <div class="sm-item-sub">About Me</div>
+          </div>
+        </div>
+
+        <div class="sm-divider"></div>
+
+        <div class="sm-all-programs">
+          <span>All Programs</span>
+          <svg width="8" height="8" viewBox="0 0 8 8" style="margin-left:auto">
+            <polygon points="0,0 8,4 0,8" fill="#000"/>
+          </svg>
+        </div>
+
+      </div><!-- /sm-left -->
+
+      <!-- RIGHT: light blue panel — decorative only -->
+      <div class="sm-right">
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16"><path d="M1,4 L7,4 L8,2 L19,2 L19,14 L1,14 Z" fill="#EEC900"/><path d="M1,5 L19,5 L19,14 L1,14 Z" fill="#FFD84D"/><rect x="4" y="7" width="12" height="1.5" rx="0.5" fill="rgba(0,0,0,0.15)"/><rect x="4" y="10" width="9" height="1.5" rx="0.5" fill="rgba(0,0,0,0.15)"/></svg>
+          <span>My Documents</span>
+        </div>
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16"><path d="M1,4 L7,4 L8,2 L19,2 L19,14 L1,14 Z" fill="#EEC900"/><path d="M1,5 L19,5 L19,14 L1,14 Z" fill="#FFD84D"/></svg>
+          <span>My Recent Documents</span>
+        </div>
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16"><path d="M1,4 L7,4 L8,2 L19,2 L19,14 L1,14 Z" fill="#EEC900"/><path d="M1,5 L19,5 L19,14 L1,14 Z" fill="#FFD84D"/></svg>
+          <span>My Pictures</span>
+        </div>
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16"><path d="M1,4 L7,4 L8,2 L19,2 L19,14 L1,14 Z" fill="#EEC900"/><path d="M1,5 L19,5 L19,14 L1,14 Z" fill="#FFD84D"/></svg>
+          <span>My Music</span>
+        </div>
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16">
+            <rect x="1" y="1" width="18" height="11" rx="1.5" fill="#B0C4DE" stroke="#607090" stroke-width="1"/>
+            <rect x="3" y="3" width="14" height="7" fill="#87CEEB"/>
+            <rect x="7" y="12" width="6" height="2" fill="#A0A0A0"/>
+            <rect x="5" y="14" width="10" height="1.5" rx="0.5" fill="#909090"/>
+          </svg>
+          <span>My Computer</span>
+        </div>
+
+        <div class="sm-right-divider"></div>
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16">
+            <rect x="1" y="1" width="18" height="14" rx="1.5" fill="#D4E8F8" stroke="#6090C8" stroke-width="1"/>
+            <rect x="3" y="4" width="14" height="2" fill="#4A7EC0"/>
+            <rect x="3" y="8" width="11" height="1.5" fill="#88B0D8"/>
+            <rect x="3" y="11" width="8" height="1.5" fill="#88B0D8"/>
+          </svg>
+          <span>Control Panel</span>
+        </div>
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16">
+            <circle cx="10" cy="8" r="6" fill="none" stroke="#4A7EC0" stroke-width="1.5"/>
+            <text x="10" y="12" text-anchor="middle" font-size="8" font-weight="bold" fill="#4A7EC0">?</text>
+          </svg>
+          <span>Help and Support</span>
+        </div>
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16">
+            <circle cx="8" cy="8" r="5" fill="none" stroke="#4A7EC0" stroke-width="1.5"/>
+            <line x1="12" y1="12" x2="17" y2="17" stroke="#4A7EC0" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Search</span>
+        </div>
+
+        <div class="sm-right-item">
+          <svg class="sm-right-icon" viewBox="0 0 20 16">
+            <rect x="2" y="4" width="14" height="10" rx="1" fill="#E8E0C0" stroke="#908060" stroke-width="1"/>
+            <rect x="4" y="2" width="12" height="10" rx="1" fill="#F0E8D0" stroke="#908060" stroke-width="1"/>
+            <line x1="6" y1="6" x2="14" y2="6" stroke="#908060" stroke-width="1"/>
+            <line x1="6" y1="8.5" x2="14" y2="8.5" stroke="#908060" stroke-width="1"/>
+            <line x1="6" y1="11" x2="11" y2="11" stroke="#908060" stroke-width="1"/>
+          </svg>
+          <span>Run...</span>
+        </div>
+
+      </div><!-- /sm-right -->
+
+    </div><!-- /sm-body -->
+
+    <!-- Footer: Log Off + Turn Off Computer -->
+    <div class="sm-footer">
+      <button class="sm-footer-btn">
+        <img src="https://www.vhv.rs/dpng/d/303-3036622_windows-xp-logoff-icon-hd-png-download.png" width="20" height="20" alt="Log Off" style="object-fit:contain">
+        Log Off
+      </button>
+      <button class="sm-footer-btn">
+        <img src="https://icons.iconarchive.com/icons/hopstarter/sleek-xp-software/256/Windows-Turn-Off-icon.png" width="20" height="20" alt="Turn Off" style="object-fit:contain">
+        Turn Off Computer
+      </button>
+    </div>
+
+  </div><!-- /start-menu -->
+
+  <script src="{{ '/assets/xp.js' | relative_url }}"></script>
+</body>
+</html>
