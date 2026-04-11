@@ -7,8 +7,8 @@
   var prevSize  = {};
   var dragEl    = null, dragOX = 0, dragOY = 0;
 
-  /* ── IE icon (real XP icon) ── */
-  var IE_ICON_URL = 'https://www.nicepng.com/png/detail/145-1453188_ie-logo-windows-xp-internet-explorer-icon.png';
+  /* ── IE icon (real XP icon, transparent background) ── */
+  var IE_ICON_URL = 'https://www.freeiconspng.com/uploads/internet-explorer-icon-13.png';
 
   function ieIcon(size) {
     return '<img src="' + IE_ICON_URL + '" width="' + size + '" height="' + size + '" style="flex-shrink:0;image-rendering:auto" alt="IE">';
