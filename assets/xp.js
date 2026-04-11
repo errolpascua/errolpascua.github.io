@@ -22,6 +22,10 @@
       .replace(/"/g, '&quot;');
   }
 
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
   /* ── Window management ── */
 
   function openWindow(url, title) {
@@ -36,14 +40,26 @@
     }
 
     winSeq++;
-    var id  = 'w' + winSeq;
-    var z   = ++winZ;
-    var W   = 880, H = 570;
-    var vw  = window.innerWidth;
-    var vh  = window.innerHeight - 42;
-    var lft = Math.max(0, (vw - W) / 2 + cascadeN * 28);
-    var top = Math.max(0, (vh - H) / 2 + cascadeN * 28);
-    cascadeN = (cascadeN + 1) % 6;
+    var id = 'w' + winSeq;
+    var z  = ++winZ;
+    var vw = window.innerWidth;
+    var vh = window.innerHeight - 30; // taskbar height
+
+    var W, H, lft, top;
+
+    if (isMobile()) {
+      // Full-screen on mobile — no cascade, no chrome padding
+      W   = vw;
+      H   = vh;
+      lft = 0;
+      top = 0;
+    } else {
+      W   = Math.min(880, vw - 40);
+      H   = Math.min(570, vh - 40);
+      lft = Math.max(0, (vw - W) / 2 + cascadeN * 28);
+      top = Math.max(0, (vh - H) / 2 + cascadeN * 28);
+      cascadeN = (cascadeN + 1) % 6;
+    }
 
     var el = document.createElement('div');
     el.className = 'xp-window active';
@@ -54,18 +70,8 @@
     var shortTitle = esc(title) + ' \u2013 Microsoft Internet Explorer';
     var addrVal    = 'https://errolpascua.github.io' + url;
 
-    el.innerHTML =
-      '<div class="win-titlebar">' +
-        '<div class="win-title-wrap">' +
-          ieIcon(16) +
-          '<span class="win-title-text">' + shortTitle + '</span>' +
-        '</div>' +
-        '<div class="win-btn-group">' +
-          '<button class="win-btn btn-min"  title="Minimize">&#x2014;</button>' +
-          '<button class="win-btn btn-max"  title="Restore/Maximize">&#x25A1;</button>' +
-          '<button class="win-btn btn-close" title="Close">&#x2715;</button>' +
-        '</div>' +
-      '</div>' +
+    // On mobile hide the menubar + toolbar to maximise content space
+    var extraChrome = isMobile() ? '' :
       '<div class="win-menubar">' +
         '<span>File</span><span>Edit</span><span>View</span>' +
         '<span>Favorites</span><span>Tools</span><span>Help</span>' +
@@ -82,31 +88,55 @@
           '<input class="tb-addr-input" value="' + esc(addrVal) + '" readonly>' +
           '<button class="tb-go">Go</button>' +
         '</div>' +
-      '</div>' +
-      '<iframe class="win-frame" src="' + esc(url) + '" frameborder="0"></iframe>' +
-      '<div class="win-statusbar">' +
-        '<span class="status-msg">Done</span>' +
-        '<span class="status-zone">&#127760; Internet</span>' +
       '</div>';
+
+    el.innerHTML =
+      '<div class="win-titlebar">' +
+        '<div class="win-title-wrap">' +
+          ieIcon(16) +
+          '<span class="win-title-text">' + shortTitle + '</span>' +
+        '</div>' +
+        '<div class="win-btn-group">' +
+          (isMobile() ? '' : '<button class="win-btn btn-min"  title="Minimize">&#x2014;</button>') +
+          (isMobile() ? '' : '<button class="win-btn btn-max"  title="Restore/Maximize">&#x25A1;</button>') +
+          '<button class="win-btn btn-close" title="Close">&#x2715;</button>' +
+        '</div>' +
+      '</div>' +
+      extraChrome +
+      '<iframe class="win-frame" src="' + esc(url) + '" frameborder="0"></iframe>' +
+      (isMobile() ? '' :
+        '<div class="win-statusbar">' +
+          '<span class="status-msg">Done</span>' +
+          '<span class="status-zone">&#127760; Internet</span>' +
+        '</div>');
 
     document.getElementById('windows').appendChild(el);
 
-    // Title bar drag
+    // Title bar — mouse drag (desktop)
     el.querySelector('.win-titlebar').addEventListener('mousedown', function (e) {
       if (e.target.closest('.win-btn-group')) return;
       startDrag(e, el);
     });
 
-    // Focus on click anywhere in window
-    el.addEventListener('mousedown', function () { bringToFront(el); });
+    // Title bar — touch drag (mobile)
+    el.querySelector('.win-titlebar').addEventListener('touchstart', function (e) {
+      if (e.target.closest('.win-btn-group')) return;
+      startDragTouch(e, el);
+    }, { passive: false });
+
+    // Focus on click/touch anywhere in window
+    el.addEventListener('mousedown',  function () { bringToFront(el); });
+    el.addEventListener('touchstart', function () { bringToFront(el); }, { passive: true });
 
     // Buttons
-    el.querySelector('.btn-close').addEventListener('click',   function () { closeWindow(el); });
-    el.querySelector('.btn-min')  .addEventListener('click',   function () { minimizeWindow(el); });
-    el.querySelector('.btn-max')  .addEventListener('click',   function () { toggleMaximize(el); });
-    el.querySelector('.tb-refresh').addEventListener('click',  function () {
-      el.querySelector('.win-frame').src = url;
-    });
+    el.querySelector('.btn-close').addEventListener('click', function () { closeWindow(el); });
+    if (!isMobile()) {
+      el.querySelector('.btn-min').addEventListener('click', function () { minimizeWindow(el); });
+      el.querySelector('.btn-max').addEventListener('click', function () { toggleMaximize(el); });
+      el.querySelector('.tb-refresh').addEventListener('click', function () {
+        el.querySelector('.win-frame').src = url;
+      });
+    }
 
     addTaskbarBtn(id, title, url);
     bringToFront(el);
@@ -139,7 +169,7 @@
       el.style.left   = '0';
       el.style.top    = '0';
       el.style.width  = '100vw';
-      el.style.height = 'calc(100vh - 42px)';
+      el.style.height = 'calc(100vh - 30px)';
       el.classList.add('maximized');
     }
   }
@@ -153,7 +183,7 @@
     if (btn) btn.classList.add('active');
   }
 
-  /* ── Dragging ── */
+  /* ── Dragging — mouse ── */
 
   function startDrag(e, el) {
     if (el.classList.contains('maximized')) return;
@@ -166,12 +196,35 @@
   document.addEventListener('mousemove', function (e) {
     if (!dragEl) return;
     var x = e.clientX - dragOX;
-    var y = Math.max(0, Math.min(window.innerHeight - 42 - 30, e.clientY - dragOY));
+    var y = Math.max(0, Math.min(window.innerHeight - 30 - 30, e.clientY - dragOY));
     dragEl.style.left = x + 'px';
     dragEl.style.top  = y + 'px';
   });
 
   document.addEventListener('mouseup', function () { dragEl = null; });
+
+  /* ── Dragging — touch ── */
+
+  function startDragTouch(e, el) {
+    if (el.classList.contains('maximized')) return;
+    var t = e.touches[0];
+    dragEl = el;
+    dragOX = t.clientX - el.offsetLeft;
+    dragOY = t.clientY - el.offsetTop;
+    e.preventDefault();
+  }
+
+  document.addEventListener('touchmove', function (e) {
+    if (!dragEl) return;
+    var t = e.touches[0];
+    var x = t.clientX - dragOX;
+    var y = Math.max(0, Math.min(window.innerHeight - 30 - 30, t.clientY - dragOY));
+    dragEl.style.left = x + 'px';
+    dragEl.style.top  = y + 'px';
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('touchend', function () { dragEl = null; });
 
   /* ── Taskbar buttons ── */
 
@@ -237,20 +290,27 @@
   });
 
   document.querySelectorAll('.d-icon').forEach(function (icon) {
-    var clicks = 0, timer = null;
-    icon.addEventListener('click', function () {
-      // Select on single click
-      document.querySelectorAll('.d-icon').forEach(function (i) { i.classList.remove('selected'); });
-      icon.classList.add('selected');
-      clicks++;
-      if (clicks === 1) {
-        timer = setTimeout(function () { clicks = 0; }, 400);
-      } else {
-        clearTimeout(timer);
-        clicks = 0;
+    if (isMobile()) {
+      // Single tap on mobile
+      icon.addEventListener('click', function () {
         openWindow(icon.dataset.url, icon.dataset.title);
-      }
-    });
+      });
+    } else {
+      // Double-click on desktop
+      var clicks = 0, timer = null;
+      icon.addEventListener('click', function () {
+        document.querySelectorAll('.d-icon').forEach(function (i) { i.classList.remove('selected'); });
+        icon.classList.add('selected');
+        clicks++;
+        if (clicks === 1) {
+          timer = setTimeout(function () { clicks = 0; }, 400);
+        } else {
+          clearTimeout(timer);
+          clicks = 0;
+          openWindow(icon.dataset.url, icon.dataset.title);
+        }
+      });
+    }
   });
 
   // Close start menu when clicking elsewhere
@@ -258,7 +318,6 @@
     if (startOpen && !e.target.closest('#start-menu') && !e.target.closest('#start-btn')) {
       closeStartMenu();
     }
-    // Deselect desktop icons when clicking desktop background
     if (e.target.id === 'desktop') {
       document.querySelectorAll('.d-icon').forEach(function (i) { i.classList.remove('selected'); });
     }
@@ -267,7 +326,6 @@
   updateClock();
   setInterval(updateClock, 15000);
 
-  // Expose for any other callers
   window.openWindow = openWindow;
 
 })();
