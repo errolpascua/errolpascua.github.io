@@ -233,7 +233,7 @@
 
   document.getElementById('start-btn').addEventListener('click', toggleStartMenu);
 
-  document.querySelectorAll('.sm-item').forEach(function (item) {
+  document.querySelectorAll('.sm-clickable').forEach(function (item) {
     item.addEventListener('click', function () {
       closeStartMenu();
       openWindow(item.dataset.url, item.dataset.title);
