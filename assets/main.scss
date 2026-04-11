@@ -15,17 +15,12 @@
   --muted: #8b949e;
   --border: #1f2a37;
 
-  /* Unified accent */
-  --accent: #58a6ff;      /* GitHub-ish blue */
+  /* Unified accent — single blue throughout */
+  --accent: #58a6ff;
   --accent-hover: #79c0ff;
+  --accent-dim: rgba(88, 166, 255, 0.15);
 
   --codebg: #0f1722;
-
-  /* Tetris piece colors (used as section accents) */
-  --tetris-I: #00f0f0;
-  --tetris-T: #a000f0;
-  --tetris-L: #f0a000;
-  --tetris-S: #00d000;
 }
 
 /* =========
@@ -97,8 +92,11 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: none;
 }
 
-/* Terminal accent line under page h1 */
+/* Page name (e.g. "Errol Pascua" on resume) uses the site's VT323 identity font */
 h1 {
+  font-family: 'VT323', ui-monospace, monospace !important;
+  font-size: 2.2rem !important;
+  letter-spacing: 1px;
   position: relative;
   padding-bottom: 0.35rem;
 }
@@ -114,17 +112,17 @@ h1:after {
   border-radius: 2px;
 }
 
-/* Tetris-tinted section and sub-section headings */
+/* Section headings — single accent blue */
 h2 {
-  color: var(--tetris-I) !important;
-  border-bottom: 1px solid rgba(0, 240, 240, 0.12);
+  color: var(--accent) !important;
+  border-bottom: 1px solid rgba(88, 166, 255, 0.18);
   padding-bottom: 0.25rem;
 }
 
 h3 {
   color: var(--text-strong) !important;
   padding-left: 0.65rem;
-  border-left: 2px solid var(--tetris-T);
+  border-left: 2px solid var(--accent);
 }
 
 /* =========

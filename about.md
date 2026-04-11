@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-## About Me
-
 I'm an embedded firmware engineer working on **cryptographic subsystems for ARM microcontrollers**.
 
 I currently work on porting and validating cryptographic drivers, building demo and reference applications, enforcing MISRA-C compliance through static analysis, and creating ASPICE-aligned documentation and test plans. My work involves understanding how **hardware and firmware interact** -- register mapping, interrupt behavior, build system configuration -- and making sure crypto implementations work correctly on real silicon.
