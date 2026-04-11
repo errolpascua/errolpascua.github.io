@@ -7,15 +7,11 @@
   var prevSize  = {};
   var dragEl    = null, dragOX = 0, dragOY = 0;
 
-  /* ── IE icon SVG ── */
+  /* ── IE icon (real XP icon) ── */
+  var IE_ICON_URL = 'https://www.nicepng.com/png/detail/145-1453188_ie-logo-windows-xp-internet-explorer-icon.png';
+
   function ieIcon(size) {
-    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 16 16" style="flex-shrink:0">' +
-      '<circle cx="8" cy="8" r="7" fill="#1565C0"/>' +
-      '<text x="8" y="11.5" text-anchor="middle" font-family="Times New Roman,serif" ' +
-        'font-style="italic" font-weight="bold" font-size="9" fill="white">e</text>' +
-      '<ellipse cx="8" cy="8" rx="7" ry="2.5" fill="none" stroke="#FFD600" stroke-width="1" ' +
-        'transform="rotate(-35 8 8)"/>' +
-      '</svg>';
+    return '<img src="' + IE_ICON_URL + '" width="' + size + '" height="' + size + '" style="flex-shrink:0;image-rendering:auto" alt="IE">';
   }
 
   function esc(s) {

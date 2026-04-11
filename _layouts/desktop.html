@@ -12,44 +12,17 @@
   <div id="desktop">
 
     <div class="d-icon" data-url="{{ '/resume/' | relative_url }}" data-title="Resume">
-      <svg class="d-icon-img" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="gbl1" cx="38%" cy="32%" r="70%">
-            <stop offset="0%" stop-color="#6EC6FF"/>
-            <stop offset="100%" stop-color="#0D47A1"/>
-          </radialGradient>
-        </defs>
-        <circle cx="24" cy="24" r="23" fill="url(#gbl1)"/>
-        <ellipse cx="24" cy="24" rx="9.5" ry="23" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-        <ellipse cx="24" cy="24" rx="23" ry="9" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-        <line x1="1" y1="24" x2="47" y2="24" stroke="rgba(255,255,255,0.15)" stroke-width="1.2"/>
-        <text x="24" y="33" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="27" fill="white">e</text>
-        <ellipse cx="24" cy="24" rx="23" ry="8.5" fill="none" stroke="#FFD600" stroke-width="3.5" transform="rotate(-35 24 24)"/>
-      </svg>
+      <img class="d-icon-img" src="https://www.nicepng.com/png/detail/145-1453188_ie-logo-windows-xp-internet-explorer-icon.png" alt="IE">
       <span class="d-icon-label">Resume</span>
     </div>
 
     <div class="d-icon" data-url="{{ '/projects/' | relative_url }}" data-title="Projects">
-      <svg class="d-icon-img" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="23" fill="url(#gbl1)"/>
-        <ellipse cx="24" cy="24" rx="9.5" ry="23" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-        <ellipse cx="24" cy="24" rx="23" ry="9" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-        <line x1="1" y1="24" x2="47" y2="24" stroke="rgba(255,255,255,0.15)" stroke-width="1.2"/>
-        <text x="24" y="33" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="27" fill="white">e</text>
-        <ellipse cx="24" cy="24" rx="23" ry="8.5" fill="none" stroke="#FFD600" stroke-width="3.5" transform="rotate(-35 24 24)"/>
-      </svg>
+      <img class="d-icon-img" src="https://www.nicepng.com/png/detail/145-1453188_ie-logo-windows-xp-internet-explorer-icon.png" alt="IE">
       <span class="d-icon-label">Projects</span>
     </div>
 
     <div class="d-icon" data-url="{{ '/about/' | relative_url }}" data-title="About">
-      <svg class="d-icon-img" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="23" fill="url(#gbl1)"/>
-        <ellipse cx="24" cy="24" rx="9.5" ry="23" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-        <ellipse cx="24" cy="24" rx="23" ry="9" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-        <line x1="1" y1="24" x2="47" y2="24" stroke="rgba(255,255,255,0.15)" stroke-width="1.2"/>
-        <text x="24" y="33" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="27" fill="white">e</text>
-        <ellipse cx="24" cy="24" rx="23" ry="8.5" fill="none" stroke="#FFD600" stroke-width="3.5" transform="rotate(-35 24 24)"/>
-      </svg>
+      <img class="d-icon-img" src="https://www.nicepng.com/png/detail/145-1453188_ie-logo-windows-xp-internet-explorer-icon.png" alt="IE">
       <span class="d-icon-label">About Me</span>
     </div>
 
@@ -63,9 +36,9 @@
 
     <button id="start-btn">
       <svg class="win-flag" width="18" height="18" viewBox="0 0 18 18">
-        <rect x="1"  y="1"  width="7.5" height="7.5" rx="1" fill="#F25022"/>
-        <rect x="9.5" y="1"  width="7.5" height="7.5" rx="1" fill="#7FBA00"/>
-        <rect x="1"  y="9.5" width="7.5" height="7.5" rx="1" fill="#00A4EF"/>
+        <rect x="1"   y="1"   width="7.5" height="7.5" rx="1" fill="#F25022"/>
+        <rect x="9.5" y="1"   width="7.5" height="7.5" rx="1" fill="#7FBA00"/>
+        <rect x="1"   y="9.5" width="7.5" height="7.5" rx="1" fill="#00A4EF"/>
         <rect x="9.5" y="9.5" width="7.5" height="7.5" rx="1" fill="#FFB900"/>
       </svg>
       <span>start</span>
@@ -89,7 +62,6 @@
     <!-- Blue header with user avatar + name -->
     <div class="sm-header">
       <div class="sm-avatar">
-        <!-- Simple user silhouette -->
         <svg width="42" height="42" viewBox="0 0 42 42">
           <rect width="42" height="42" rx="4" fill="rgba(255,255,255,0.15)"/>
           <circle cx="21" cy="14" r="9" fill="rgba(255,255,255,0.85)"/>
@@ -105,22 +77,8 @@
       <!-- LEFT: white programs panel -->
       <div class="sm-left">
 
-        <!-- Pinned: IE items that open windows -->
         <div class="sm-item sm-clickable" data-url="{{ '/resume/' | relative_url }}" data-title="Resume">
-          <svg class="sm-ie-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="gbl2" cx="38%" cy="32%" r="70%">
-                <stop offset="0%" stop-color="#6EC6FF"/>
-                <stop offset="100%" stop-color="#0D47A1"/>
-              </radialGradient>
-            </defs>
-            <circle cx="10" cy="10" r="9.5" fill="url(#gbl2)"/>
-            <ellipse cx="10" cy="10" rx="4" ry="9.5" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
-            <ellipse cx="10" cy="10" rx="9.5" ry="3.8" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
-            <line x1="0.5" y1="10" x2="19.5" y2="10" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
-            <text x="10" y="13.5" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="11" fill="white">e</text>
-            <ellipse cx="10" cy="10" rx="9.5" ry="3.5" fill="none" stroke="#FFD600" stroke-width="1.5" transform="rotate(-35 10 10)"/>
-          </svg>
+          <img class="sm-ie-icon" src="https://www.nicepng.com/png/detail/145-1453188_ie-logo-windows-xp-internet-explorer-icon.png" alt="IE">
           <div>
             <div class="sm-item-title">Internet Explorer</div>
             <div class="sm-item-sub">Resume</div>
@@ -128,14 +86,7 @@
         </div>
 
         <div class="sm-item sm-clickable" data-url="{{ '/projects/' | relative_url }}" data-title="Projects">
-          <svg class="sm-ie-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="10" cy="10" r="9.5" fill="url(#gbl2)"/>
-            <ellipse cx="10" cy="10" rx="4" ry="9.5" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
-            <ellipse cx="10" cy="10" rx="9.5" ry="3.8" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
-            <line x1="0.5" y1="10" x2="19.5" y2="10" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
-            <text x="10" y="13.5" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="11" fill="white">e</text>
-            <ellipse cx="10" cy="10" rx="9.5" ry="3.5" fill="none" stroke="#FFD600" stroke-width="1.5" transform="rotate(-35 10 10)"/>
-          </svg>
+          <img class="sm-ie-icon" src="https://www.nicepng.com/png/detail/145-1453188_ie-logo-windows-xp-internet-explorer-icon.png" alt="IE">
           <div>
             <div class="sm-item-title">Internet Explorer</div>
             <div class="sm-item-sub">Projects</div>
@@ -143,14 +94,7 @@
         </div>
 
         <div class="sm-item sm-clickable" data-url="{{ '/about/' | relative_url }}" data-title="About Me">
-          <svg class="sm-ie-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="10" cy="10" r="9.5" fill="url(#gbl2)"/>
-            <ellipse cx="10" cy="10" rx="4" ry="9.5" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
-            <ellipse cx="10" cy="10" rx="9.5" ry="3.8" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
-            <line x1="0.5" y1="10" x2="19.5" y2="10" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
-            <text x="10" y="13.5" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="11" fill="white">e</text>
-            <ellipse cx="10" cy="10" rx="9.5" ry="3.5" fill="none" stroke="#FFD600" stroke-width="1.5" transform="rotate(-35 10 10)"/>
-          </svg>
+          <img class="sm-ie-icon" src="https://www.nicepng.com/png/detail/145-1453188_ie-logo-windows-xp-internet-explorer-icon.png" alt="IE">
           <div>
             <div class="sm-item-title">Internet Explorer</div>
             <div class="sm-item-sub">About Me</div>
@@ -159,8 +103,7 @@
 
         <div class="sm-divider"></div>
 
-        <!-- All Programs row -->
-        <div class="sm-item sm-all-programs">
+        <div class="sm-all-programs">
           <span>All Programs</span>
           <svg width="8" height="8" viewBox="0 0 8 8" style="margin-left:auto">
             <polygon points="0,0 8,4 0,8" fill="#000"/>
@@ -193,7 +136,6 @@
         </div>
 
         <div class="sm-right-item">
-          <!-- computer icon -->
           <svg class="sm-right-icon" viewBox="0 0 20 16">
             <rect x="1" y="1" width="18" height="11" rx="1.5" fill="#B0C4DE" stroke="#607090" stroke-width="1"/>
             <rect x="3" y="3" width="14" height="7" fill="#87CEEB"/>
@@ -225,12 +167,8 @@
 
         <div class="sm-right-item">
           <svg class="sm-right-icon" viewBox="0 0 20 16">
-            <circle cx="10" cy="8" r="6" fill="none" stroke="#4A7EC0" stroke-width="1.5"/>
-            <circle cx="10" cy="8" r="2.5" fill="#4A7EC0"/>
-            <line x1="10" y1="2.5" x2="10" y2="4" stroke="#4A7EC0" stroke-width="1.5"/>
-            <line x1="10" y1="12" x2="10" y2="13.5" stroke="#4A7EC0" stroke-width="1.5"/>
-            <line x1="2.5" y1="8" x2="4" y2="8" stroke="#4A7EC0" stroke-width="1.5"/>
-            <line x1="16" y1="8" x2="17.5" y2="8" stroke="#4A7EC0" stroke-width="1.5"/>
+            <circle cx="8" cy="8" r="5" fill="none" stroke="#4A7EC0" stroke-width="1.5"/>
+            <line x1="12" y1="12" x2="17" y2="17" stroke="#4A7EC0" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <span>Search</span>
         </div>
@@ -254,19 +192,17 @@
     <div class="sm-footer">
       <button class="sm-footer-btn">
         <svg width="16" height="16" viewBox="0 0 16 16">
-          <circle cx="8" cy="5" r="3" fill="#4070C0" stroke="#2050A0" stroke-width="0.5"/>
-          <path d="M3,15 Q3,10 8,10 Q13,10 13,15" fill="#4070C0" stroke="#2050A0" stroke-width="0.5"/>
-          <path d="M10,8 L14,8 L14,12 L10,12" fill="none" stroke="#2050A0" stroke-width="1.2"/>
-          <line x1="11" y1="10" x2="16" y2="10" stroke="#2050A0" stroke-width="1.2"/>
-          <polygon points="14,8 16,10 14,12" fill="#2050A0"/>
+          <circle cx="7" cy="5" r="2.8" fill="#4070C0"/>
+          <path d="M2.5,15 Q2.5,10 7,10 Q11.5,10 11.5,15" fill="#4070C0"/>
+          <line x1="10" y1="8" x2="14" y2="8" stroke="#4070C0" stroke-width="1.5"/>
+          <polyline points="12,6 14,8 12,10" fill="none" stroke="#4070C0" stroke-width="1.5"/>
         </svg>
         Log Off
       </button>
       <button class="sm-footer-btn">
         <svg width="16" height="16" viewBox="0 0 16 16">
-          <circle cx="8" cy="8" r="6.5" fill="none" stroke="#5A5A8A" stroke-width="1.5"/>
-          <line x1="8" y1="2" x2="8" y2="8" stroke="#5A5A8A" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M5,3.8 A5.5,5.5 0 1 0 11,3.8" fill="none" stroke="#5A5A8A" stroke-width="1.8"/>
+          <path d="M5,3.5 A5.5,5.5 0 1 0 11,3.5" fill="none" stroke="#5A5A8A" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="8" y1="1.5" x2="8" y2="7" stroke="#5A5A8A" stroke-width="2.2" stroke-linecap="round"/>
         </svg>
         Turn Off Computer
       </button>
