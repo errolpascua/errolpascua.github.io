@@ -1,6 +1,7 @@
 ---
 ---
 
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import "minima";
 
 /* =========
@@ -14,11 +15,17 @@
   --muted: #8b949e;
   --border: #1f2a37;
 
-  /* Unified accent: use one color everywhere */
+  /* Unified accent */
   --accent: #58a6ff;      /* GitHub-ish blue */
   --accent-hover: #79c0ff;
 
   --codebg: #0f1722;
+
+  /* Tetris piece colors (used as section accents) */
+  --tetris-I: #00f0f0;
+  --tetris-T: #a000f0;
+  --tetris-L: #f0a000;
+  --tetris-S: #00d000;
 }
 
 /* =========
@@ -35,6 +42,19 @@ body {
   text-rendering: geometricPrecision;
 }
 
+/* =========
+   Tetris canvas – fixed behind all content
+   ========= */
+#tetris-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Make the whole site one consistent background */
 .wrapper,
 .page-content,
@@ -43,9 +63,11 @@ body {
 .site-footer,
 .site-nav {
   background: var(--bg) !important;
+  position: relative;
+  z-index: 1;
 }
 
-/* Make content width feel a bit more “app-like” (optional) */
+/* Make content width feel a bit more "app-like" */
 .wrapper {
   max-width: 980px;
 }
@@ -56,12 +78,16 @@ body {
 .site-header {
   border-top: none !important;
   border-bottom: 1px solid rgba(31, 42, 55, 0.9) !important;
+  z-index: 10;
 }
 
+/* Pixel / retro title using VT323 */
 .site-title,
 .site-title:visited {
+  font-family: 'VT323', ui-monospace, monospace !important;
+  font-size: 1.65rem !important;
   color: var(--accent) !important;
-  letter-spacing: 0.3px;
+  letter-spacing: 1.5px;
 }
 
 .site-nav .page-link {
@@ -75,7 +101,7 @@ body {
 }
 
 /* =========
-   Headings: semi-monospace security vibe
+   Headings
    ========= */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-strong) !important;
@@ -85,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: none;
 }
 
-/* Subtle “terminal” accent line under page titles */
+/* Terminal accent line under page h1 */
 h1 {
   position: relative;
   padding-bottom: 0.35rem;
@@ -100,6 +126,19 @@ h1:after {
   background: var(--accent);
   opacity: 0.9;
   border-radius: 2px;
+}
+
+/* Tetris-tinted section and sub-section headings */
+h2 {
+  color: var(--tetris-I) !important;
+  border-bottom: 1px solid rgba(0, 240, 240, 0.12);
+  padding-bottom: 0.25rem;
+}
+
+h3 {
+  color: var(--text-strong) !important;
+  padding-left: 0.65rem;
+  border-left: 2px solid var(--tetris-T);
 }
 
 /* =========
@@ -136,18 +175,12 @@ small, .post-meta, .site-description {
 }
 
 /* =========
-   Subtle divider lines / section separators
+   Subtle divider lines
    ========= */
 hr {
   border: 0;
   border-top: 1px solid rgba(31, 42, 55, 0.85);
   margin: 2rem 0;
-}
-
-/* Add subtle top borders to posts/pages content blocks where applicable */
-.post-content,
-.page-content .wrapper {
-  border-top: 0;
 }
 
 /* =========
@@ -171,14 +204,13 @@ pre code {
   color: var(--text-strong) !important;
 }
 
-/* Inline code */
 p code, li code {
   padding: 0.15rem 0.35rem;
   border-radius: 8px;
 }
 
 /* =========
-   Blockquotes (nice security note vibe)
+   Blockquotes
    ========= */
 blockquote {
   border-left: 3px solid rgba(88, 166, 255, 0.8);
@@ -195,6 +227,7 @@ blockquote {
   border-top: 1px solid rgba(31, 42, 55, 0.9) !important;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  z-index: 10;
 }
 
 .site-footer .footer-heading {
@@ -213,4 +246,18 @@ blockquote {
 .site-footer a:hover {
   color: var(--accent-hover) !important;
   text-decoration: underline;
+}
+
+/* =========
+   Scroll Reveal
+   ========= */
+.sr {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.sr.sr-in {
+  opacity: 1;
+  transform: none;
 }
