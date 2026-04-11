@@ -1,13 +1,12 @@
 (function () {
   'use strict';
 
-  /* ─── Tetris Background Canvas ─── */
+  /* ─── Tetris Parallax Background ─── */
 
   var canvas = document.getElementById('tetris-bg');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
 
-  // Classic Tetris piece shapes and colors
   var SHAPES = [
     { cells: [[1,1,1,1]],       color: '#00f0f0' }, // I – cyan
     { cells: [[1,0,0],[1,1,1]], color: '#0070f0' }, // J – blue
@@ -18,76 +17,130 @@
     { cells: [[1,1,0],[0,1,1]], color: '#f00000' }, // Z – red
   ];
 
-  var SZ    = 22;    // block size (px)
-  var ALPHA = 0.065; // overall opacity – keep subtle
-  var COUNT = 13;    // simultaneous falling pieces
+  var SZ       = 24;   // block size in px
+  var FILL_A   = 0.08; // fill opacity
+  var EDGE_A   = 0.18; // piece-edge highlight opacity
+  var PARALLAX = 0.35; // how fast the board scrolls vs the page
+  var ROWS     = 320;  // board height in blocks (tall enough to loop)
 
-  var W, H, pieces = [], raf;
+  var W, H, COLS, board, raf = null;
 
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
 
-  function newPiece(startY) {
-    var s  = SHAPES[Math.floor(Math.random() * SHAPES.length)];
-    var pw = s.cells[0].length * SZ;
-    return {
-      cells : s.cells,
-      color : s.color,
-      x     : Math.floor(Math.random() * Math.max(1, W - pw)),
-      y     : startY !== undefined ? startY : -(s.cells.length * SZ + 4),
-      vy    : 0.28 + Math.random() * 0.45,
-    };
-  }
+  /* ── Board generation ── */
 
-  function drawPiece(p) {
-    for (var r = 0; r < p.cells.length; r++) {
-      for (var c = 0; c < p.cells[r].length; c++) {
-        if (!p.cells[r][c]) continue;
-        var px = p.x + c * SZ;
-        var py = p.y + r * SZ;
-        // fill
-        ctx.globalAlpha = ALPHA;
-        ctx.fillStyle = p.color;
-        ctx.fillRect(px, py, SZ - 1, SZ - 1);
-        // inner highlight border
-        ctx.globalAlpha = ALPHA * 0.45;
-        ctx.strokeStyle = p.color;
-        ctx.lineWidth = 1;
-        ctx.strokeRect(px + 1, py + 1, SZ - 3, SZ - 3);
+  function makeBoard() {
+    var rows = ROWS, cols = COLS;
+    board = [];
+    for (var r = 0; r < rows; r++) {
+      board.push(new Array(cols).fill(null));
+    }
+
+    var id = 0;
+    var tries = rows * cols * 3;
+
+    for (var t = 0; t < tries; t++) {
+      var s = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+      var or = Math.floor(Math.random() * rows);
+      var oc = Math.floor(Math.random() * cols);
+
+      // Validate — no overlap, no out-of-bounds
+      var ok = true;
+      for (var dr = 0; dr < s.cells.length && ok; dr++) {
+        for (var dc = 0; dc < s.cells[dr].length && ok; dc++) {
+          if (!s.cells[dr][dc]) continue;
+          var nr = or + dr, nc = oc + dc;
+          if (nr >= rows || nc >= cols || board[nr][nc]) ok = false;
+        }
+      }
+
+      if (ok) {
+        id++;
+        for (var dr = 0; dr < s.cells.length; dr++) {
+          for (var dc = 0; dc < s.cells[dr].length; dc++) {
+            if (s.cells[dr][dc]) {
+              board[or + dr][oc + dc] = { color: s.color, id: id };
+            }
+          }
+        }
       }
     }
   }
 
-  function tick() {
+
+  /* ── Drawing ── */
+
+  function drawBoardAt(offsetY) {
+    var rows = ROWS;
+    for (var r = 0; r < rows; r++) {
+      var py = r * SZ + offsetY;
+      if (py > H + SZ || py + SZ < -SZ) continue; // skip off-screen rows
+
+      for (var c = 0; c < COLS; c++) {
+        var cell = board[r][c];
+        if (!cell) continue;
+
+        var px = c * SZ;
+
+        // Block fill
+        ctx.globalAlpha = FILL_A;
+        ctx.fillStyle = cell.color;
+        ctx.fillRect(px, py, SZ, SZ);
+
+        // Draw bright 1px edge lines only on piece boundaries
+        ctx.globalAlpha = EDGE_A;
+        ctx.fillStyle = cell.color;
+
+        var top = r > 0 ? board[r - 1][c] : null;
+        if (!top || top.id !== cell.id)
+          ctx.fillRect(px, py, SZ, 1);
+
+        var bot = r < rows - 1 ? board[r + 1][c] : null;
+        if (!bot || bot.id !== cell.id)
+          ctx.fillRect(px, py + SZ - 1, SZ, 1);
+
+        var lft = c > 0 ? board[r][c - 1] : null;
+        if (!lft || lft.id !== cell.id)
+          ctx.fillRect(px, py, 1, SZ);
+
+        var rgt = c < COLS - 1 ? board[r][c + 1] : null;
+        if (!rgt || rgt.id !== cell.id)
+          ctx.fillRect(px + SZ - 1, py, 1, SZ);
+      }
+    }
+  }
+
+  function draw() {
+    raf = null;
     ctx.clearRect(0, 0, W, H);
     ctx.globalAlpha = 1;
-    for (var i = 0; i < pieces.length; i++) {
-      pieces[i].y += pieces[i].vy;
-      if (pieces[i].y > H + SZ * 4) {
-        pieces[i] = newPiece();
-      }
-      drawPiece(pieces[i]);
-    }
-    raf = requestAnimationFrame(tick);
+
+    var BOARD_H = ROWS * SZ;
+    // Compute parallax offset and wrap it to create a seamless loop
+    var raw = -(window.scrollY * PARALLAX);
+    var off = ((raw % BOARD_H) + BOARD_H) % BOARD_H;
+
+    // Draw twice so the seam never shows
+    drawBoardAt(off - BOARD_H);
+    drawBoardAt(off);
   }
 
-  function initCanvas() {
-    resize();
-    pieces = [];
-    for (var i = 0; i < COUNT; i++) {
-      // spread initial positions across full viewport height
-      pieces.push(newPiece(Math.random() * H));
-    }
-    cancelAnimationFrame(raf);
-    tick();
+  function scheduleDraw() {
+    if (!raf) raf = requestAnimationFrame(draw);
   }
 
-  window.addEventListener('resize', function () {
-    cancelAnimationFrame(raf);
-    initCanvas();
-  }, { passive: true });
+
+  /* ── Resize ── */
+
+  function init() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    COLS = Math.ceil(W / SZ) + 2;
+    makeBoard();
+    scheduleDraw();
+  }
+
+  window.addEventListener('scroll', scheduleDraw, { passive: true });
+  window.addEventListener('resize', init,          { passive: true });
 
 
   /* ─── Scroll Reveal ─── */
@@ -101,7 +154,6 @@
       '.page-content blockquote, .page-content img, ' +
       '.page-content hr, .page-content table'
     );
-
     if (!els.length) return;
 
     var io = new IntersectionObserver(function (entries) {
@@ -111,10 +163,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -24px 0px',
-    });
+    }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
 
     els.forEach(function (el) {
       el.classList.add('sr');
@@ -126,7 +175,7 @@
   /* ─── Boot ─── */
 
   function boot() {
-    initCanvas();
+    init();
     initScrollReveal();
   }
 
