@@ -118,15 +118,21 @@
       startDrag(e, el);
     });
 
-    // Title bar — touch drag (mobile)
+    // Title bar — touch drag (single finger only, so two-finger pinch isn't hijacked)
     el.querySelector('.win-titlebar').addEventListener('touchstart', function (e) {
       if (e.target.closest('.win-btn-group')) return;
+      if (e.touches.length !== 1) return;  // ignore multi-touch
       startDragTouch(e, el);
     }, { passive: false });
 
     // Focus on click/touch anywhere in window
     el.addEventListener('mousedown',  function () { bringToFront(el); });
     el.addEventListener('touchstart', function () { bringToFront(el); }, { passive: true });
+
+    // Long-press on titlebar → show close overlay (mobile)
+    if (isMobile()) {
+      attachLongPress(el);
+    }
 
     // Buttons
     el.querySelector('.btn-close').addEventListener('click', function () { closeWindow(el); });
@@ -183,6 +189,51 @@
     if (btn) btn.classList.add('active');
   }
 
+  /* ── Long-press to close (mobile) ── */
+
+  function attachLongPress(el) {
+    var timer = null;
+
+    function cancel() {
+      clearTimeout(timer);
+      timer = null;
+    }
+
+    el.querySelector('.win-titlebar').addEventListener('touchstart', function (e) {
+      if (e.target.closest('.win-btn-group')) return;
+      cancel();
+      timer = setTimeout(function () {
+        showCloseOverlay(el);
+      }, 700);
+    }, { passive: true });
+
+    el.querySelector('.win-titlebar').addEventListener('touchend',  cancel, { passive: true });
+    el.querySelector('.win-titlebar').addEventListener('touchmove', cancel, { passive: true });
+  }
+
+  function showCloseOverlay(el) {
+    // Don't stack overlays
+    if (el.querySelector('.close-overlay')) return;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'close-overlay';
+    overlay.innerHTML =
+      '<div class="close-overlay-box">' +
+        '<p>Close this window?</p>' +
+        '<button class="close-overlay-yes">&#x2715; Close</button>' +
+        '<button class="close-overlay-no">Cancel</button>' +
+      '</div>';
+
+    overlay.querySelector('.close-overlay-yes').addEventListener('click', function () {
+      closeWindow(el);
+    });
+    overlay.querySelector('.close-overlay-no').addEventListener('click', function () {
+      overlay.remove();
+    });
+
+    el.appendChild(overlay);
+  }
+
   /* ── Dragging — mouse ── */
 
   function startDrag(e, el) {
@@ -216,6 +267,7 @@
 
   document.addEventListener('touchmove', function (e) {
     if (!dragEl) return;
+    if (e.touches.length !== 1) { dragEl = null; return; }  // release drag on pinch
     var t = e.touches[0];
     var x = t.clientX - dragOX;
     var y = Math.max(0, Math.min(window.innerHeight - 30 - 30, t.clientY - dragOY));

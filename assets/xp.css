@@ -637,6 +637,60 @@ body {
   font-size: 10px;
 }
 
+/* ── Long-press close overlay ── */
+.close-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.close-overlay-box {
+  background: #ECE9D8;
+  border: 2px solid #0A246A;
+  border-radius: 8px;
+  padding: 20px 24px;
+  text-align: center;
+  font-family: Tahoma, sans-serif;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  min-width: 180px;
+}
+
+.close-overlay-box p {
+  font-size: 13px;
+  color: #000;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+.close-overlay-yes,
+.close-overlay-no {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: Tahoma, sans-serif;
+  cursor: pointer;
+  border: 1px solid #9C9888;
+}
+
+.close-overlay-yes {
+  background: linear-gradient(to bottom, #E88080, #C02020);
+  color: #fff;
+  border-color: #881010;
+  font-weight: bold;
+}
+
+.close-overlay-no {
+  background: linear-gradient(to bottom, #F0ECE0, #DDD8C8);
+  color: #000;
+}
+
 /* ── Window states ── */
 .xp-window.minimized { display: none; }
 
