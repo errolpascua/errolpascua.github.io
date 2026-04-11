@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/xp.css' | relative_url }}">
+</head>
+<body>
+
+  <!-- Desktop -->
+  <div id="desktop">
+
+    <div class="d-icon" data-url="{{ '/resume/' | relative_url }}" data-title="Resume">
+      <svg class="d-icon-img" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" fill="#1565C0"/>
+        <ellipse cx="24" cy="24" rx="11" ry="22" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <ellipse cx="24" cy="24" rx="22" ry="9"  fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <line x1="2" y1="24" x2="46" y2="24" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="24" y="34" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="28" fill="white">e</text>
+        <ellipse cx="24" cy="24" rx="22" ry="8" fill="none" stroke="#FFD600" stroke-width="3" transform="rotate(-35 24 24)"/>
+      </svg>
+      <span class="d-icon-label">Resume</span>
+    </div>
+
+    <div class="d-icon" data-url="{{ '/projects/' | relative_url }}" data-title="Projects">
+      <svg class="d-icon-img" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" fill="#1565C0"/>
+        <ellipse cx="24" cy="24" rx="11" ry="22" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <ellipse cx="24" cy="24" rx="22" ry="9"  fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <line x1="2" y1="24" x2="46" y2="24" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="24" y="34" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="28" fill="white">e</text>
+        <ellipse cx="24" cy="24" rx="22" ry="8" fill="none" stroke="#FFD600" stroke-width="3" transform="rotate(-35 24 24)"/>
+      </svg>
+      <span class="d-icon-label">Projects</span>
+    </div>
+
+    <div class="d-icon" data-url="{{ '/about/' | relative_url }}" data-title="About">
+      <svg class="d-icon-img" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" fill="#1565C0"/>
+        <ellipse cx="24" cy="24" rx="11" ry="22" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <ellipse cx="24" cy="24" rx="22" ry="9"  fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <line x1="2" y1="24" x2="46" y2="24" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="24" y="34" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="28" fill="white">e</text>
+        <ellipse cx="24" cy="24" rx="22" ry="8" fill="none" stroke="#FFD600" stroke-width="3" transform="rotate(-35 24 24)"/>
+      </svg>
+      <span class="d-icon-label">About</span>
+    </div>
+
+  </div>
+
+  <!-- IE windows injected here -->
+  <div id="windows"></div>
+
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <button id="start-btn">
+      <svg width="22" height="22" viewBox="0 0 22 22" style="flex-shrink:0">
+        <rect x="1"  y="1"  width="9" height="9" rx="1.5" fill="#f25022"/>
+        <rect x="12" y="1"  width="9" height="9" rx="1.5" fill="#7fba00"/>
+        <rect x="1"  y="12" width="9" height="9" rx="1.5" fill="#00a4ef"/>
+        <rect x="12" y="12" width="9" height="9" rx="1.5" fill="#ffb900"/>
+      </svg>
+      <span>start</span>
+    </button>
+
+    <div id="tray-windows"></div>
+
+    <div id="systray">
+      <div id="clock">00:00</div>
+    </div>
+  </div>
+
+  <!-- Start Menu -->
+  <div id="start-menu" class="hidden">
+    <div class="sm-header">
+      <div class="sm-avatar">&#128100;</div>
+      <span class="sm-username">Errol Pascua</span>
+    </div>
+    <div class="sm-body">
+      <div class="sm-left">
+        <div class="sm-section-label">Internet</div>
+        <div class="sm-item" data-url="{{ '/resume/' | relative_url }}" data-title="Resume">
+          <svg class="sm-ie-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#1565C0"/><text x="8" y="11.5" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="9" fill="white">e</text><ellipse cx="8" cy="8" rx="7" ry="2.5" fill="none" stroke="#FFD600" stroke-width="1" transform="rotate(-35 8 8)"/></svg>
+          <span>Resume</span>
+        </div>
+        <div class="sm-item" data-url="{{ '/projects/' | relative_url }}" data-title="Projects">
+          <svg class="sm-ie-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#1565C0"/><text x="8" y="11.5" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="9" fill="white">e</text><ellipse cx="8" cy="8" rx="7" ry="2.5" fill="none" stroke="#FFD600" stroke-width="1" transform="rotate(-35 8 8)"/></svg>
+          <span>Projects</span>
+        </div>
+        <div class="sm-item" data-url="{{ '/about/' | relative_url }}" data-title="About">
+          <svg class="sm-ie-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#1565C0"/><text x="8" y="11.5" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="9" fill="white">e</text><ellipse cx="8" cy="8" rx="7" ry="2.5" fill="none" stroke="#FFD600" stroke-width="1" transform="rotate(-35 8 8)"/></svg>
+          <span>About Me</span>
+        </div>
+      </div>
+    </div>
+    <div class="sm-footer">
+      <button class="sm-footer-btn">&#128308; Turn Off Computer</button>
+    </div>
+  </div>
+
+  <script src="{{ '/assets/xp.js' | relative_url }}"></script>
+</body>
+</html>

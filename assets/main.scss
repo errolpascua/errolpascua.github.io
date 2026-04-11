@@ -42,46 +42,15 @@ body {
   text-rendering: geometricPrecision;
 }
 
-/* =========
-   Tetris canvas – fixed behind all content
-   ========= */
-#tetris-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-}
 
-/* Full-width areas transparent so canvas shows through */
+/* Make the whole site one consistent background */
+.wrapper,
 .page-content,
 .post-content,
-.home {
-  background: transparent !important;
-  position: relative;
-  z-index: 1;
-}
-
-/* The content wrapper is the readable dark panel in the center */
-.page-content > .wrapper {
-  background: rgba(11, 15, 20, 0.93) !important;
-  border-left: 1px solid rgba(31, 42, 55, 0.7);
-  border-right: 1px solid rgba(31, 42, 55, 0.7);
-  padding-left: 2.5rem !important;
-  padding-right: 2.5rem !important;
-  padding-top: 2.5rem !important;
-  padding-bottom: 3rem !important;
-}
-
-/* Header and footer stay fully opaque */
 .site-header,
 .site-footer,
 .site-nav {
   background: var(--bg) !important;
-  position: relative;
-  z-index: 10;
 }
 
 /* Make content width feel a bit more "app-like" */
@@ -265,16 +234,3 @@ blockquote {
   text-decoration: underline;
 }
 
-/* =========
-   Scroll Reveal
-   ========= */
-.sr {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.sr.sr-in {
-  opacity: 1;
-  transform: none;
-}
