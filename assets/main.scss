@@ -55,16 +55,22 @@ body {
   z-index: 0;
 }
 
-/* Make the whole site one consistent background */
+/* Content areas must be transparent so the canvas shows through */
 .wrapper,
 .page-content,
-.post-content,
+.post-content {
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header and footer stay opaque so they cover the canvas cleanly */
 .site-header,
 .site-footer,
 .site-nav {
   background: var(--bg) !important;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 /* Make content width feel a bit more "app-like" */

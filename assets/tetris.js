@@ -18,8 +18,8 @@
   ];
 
   var SZ       = 24;   // block size in px
-  var FILL_A   = 0.08; // fill opacity
-  var EDGE_A   = 0.18; // piece-edge highlight opacity
+  var FILL_A   = 0.13; // fill opacity
+  var EDGE_A   = 0.35; // piece-edge highlight opacity
   var PARALLAX = 0.35; // how fast the board scrolls vs the page
   var ROWS     = 320;  // board height in blocks (tall enough to loop)
 
