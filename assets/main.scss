@@ -4,21 +4,21 @@
 @import "minima";
 
 /* ============================================================
-   Design tokens
+   Design tokens — dark navy palette
    ============================================================ */
 :root {
-  --bg:            #ffffff;
-  --bg-subtle:     #f8fafc;
-  --bg-inset:      #f1f5f9;
-  --text:          #0f172a;
-  --text-body:     #334155;
-  --text-muted:    #64748b;
-  --text-faint:    #94a3b8;
-  --accent:        #1d4ed8;
-  --accent-hover:  #1e40af;
-  --accent-light:  #eff6ff;
-  --border:        #e2e8f0;
-  --border-strong: #cbd5e1;
+  --bg:            #131720;
+  --bg-subtle:     #191f2e;
+  --bg-inset:      #1e2640;
+  --text:          #e8edf5;
+  --text-body:     #b8c4d6;
+  --text-muted:    #7a8fa6;
+  --text-faint:    #4a5f7a;
+  --accent:        #4d8ef0;
+  --accent-hover:  #6ba3f5;
+  --accent-light:  rgba(77, 142, 240, 0.12);
+  --border:        #242f45;
+  --border-strong: #2f3d5a;
 }
 
 /* ============================================================
@@ -52,7 +52,7 @@ body {
 .site-header {
   border-top: 3px solid var(--accent) !important;
   border-bottom: 1px solid var(--border) !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3) !important;
   padding: 0.75rem 0;
 }
 
@@ -165,7 +165,7 @@ a:hover {
 }
 
 /* ============================================================
-   Tables — skills grid fix
+   Tables — skills grid
    ============================================================ */
 table {
   width: 100%;
@@ -233,7 +233,7 @@ code, pre, .highlight {
 }
 
 pre {
-  background: #0f172a !important;
+  background: #0a0f1a !important;
   color: #e2e8f0 !important;
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -245,8 +245,8 @@ pre {
 
 code {
   background: var(--bg-inset) !important;
-  color: #1e40af !important;
-  border: 1px solid var(--border);
+  color: var(--accent-hover) !important;
+  border: 1px solid var(--border-strong);
   border-radius: 4px;
   padding: 0.1em 0.35em;
   font-size: 0.875em;
