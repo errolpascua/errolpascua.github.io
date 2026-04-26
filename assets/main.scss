@@ -3,26 +3,30 @@
 
 @import "minima";
 
+/* Inter — clean, consistent cross-platform type */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 /* ============================================================
-   Design tokens — dark navy palette
+   Design tokens — deep navy + teal (security-grade dark)
+   Reference: brittanychiang.com palette, adapted for technical portfolio
    ============================================================ */
 :root {
-  --bg:            #131720;
-  --bg-subtle:     #191f2e;
-  --bg-inset:      #1e2640;
-  --text:          #e8edf5;
-  --text-body:     #b8c4d6;
-  --text-muted:    #7a8fa6;
-  --text-faint:    #4a5f7a;
-  --accent:        #4d8ef0;
-  --accent-hover:  #6ba3f5;
-  --accent-light:  rgba(77, 142, 240, 0.12);
-  --border:        #242f45;
-  --border-strong: #2f3d5a;
+  --bg:            #0a192f;
+  --bg-subtle:     #112240;
+  --bg-inset:      #172b4d;
+  --text:          #e6f1ff;
+  --text-body:     #a8b2d8;
+  --text-muted:    #8892b0;
+  --text-faint:    #495670;
+  --accent:        #64ffda;
+  --accent-hover:  #a8ffe8;
+  --accent-light:  rgba(100, 255, 218, 0.07);
+  --border:        #1d3461;
+  --border-strong: #2a4a80;
 }
 
 /* ============================================================
-   Base reset — override Minima dark skin
+   Base reset — override all Minima dark skin defaults
    ============================================================ */
 html, body,
 .wrapper,
@@ -36,7 +40,7 @@ html, body,
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -52,7 +56,8 @@ body {
 .site-header {
   border-top: 3px solid var(--accent) !important;
   border-bottom: 1px solid var(--border) !important;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3) !important;
+  background: var(--bg-subtle) !important;
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.5) !important;
   padding: 0.75rem 0;
 }
 
@@ -67,15 +72,32 @@ body {
 
 .site-title:hover { color: var(--accent) !important; }
 
+.site-nav {
+  background: transparent !important;
+}
+
 .site-nav .page-link {
   color: var(--text-muted) !important;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 .site-nav .page-link:hover {
   color: var(--accent) !important;
   text-decoration: none !important;
+}
+
+/* Mobile hamburger icon */
+.site-nav .menu-icon > svg path {
+  fill: var(--text-muted) !important;
+}
+
+/* Mobile dropdown */
+.site-nav .trigger {
+  background: var(--bg-subtle) !important;
+  border: 1px solid var(--border) !important;
 }
 
 /* ============================================================
@@ -85,7 +107,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text) !important;
   font-weight: 700;
   line-height: 1.3;
-  letter-spacing: -0.2px;
 }
 
 h1 {
@@ -96,27 +117,31 @@ h1 {
 }
 
 h2 {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: var(--text-muted) !important;
+  letter-spacing: 1.2px;
+  color: var(--accent) !important;
   font-weight: 600;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--border);
+  opacity: 0.7;
 }
 
 h3 {
   font-size: 1.05rem;
   margin-top: 1.75rem;
   color: var(--text) !important;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent);
 }
 
 h4 {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
   color: var(--text-muted) !important;
   font-weight: 600;
   margin-top: 1.25rem;
@@ -157,15 +182,16 @@ small,
 a, a:visited {
   color: var(--accent) !important;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   color: var(--accent-hover) !important;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* ============================================================
-   Tables — skills grid
+   Tables
    ============================================================ */
 table {
   width: 100%;
@@ -179,14 +205,29 @@ table {
 
 thead th {
   background: var(--bg-inset) !important;
-  color: var(--text) !important;
+  color: var(--accent) !important;
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  letter-spacing: 1px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   padding: 0.6rem 1rem;
   border-bottom: 1px solid var(--border-strong);
   text-align: left;
+}
+
+/* Blast away ALL Minima nth-child alternating rows */
+tbody tr,
+tbody tr:nth-child(odd),
+tbody tr:nth-child(even) {
+  background: transparent !important;
+}
+
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(even) td,
+tbody tr:nth-child(odd) th,
+tbody tr:nth-child(even) th {
+  background: var(--bg) !important;
 }
 
 tbody td {
@@ -195,6 +236,7 @@ tbody td {
   border-bottom: 1px solid var(--border);
   vertical-align: top;
   background: var(--bg) !important;
+  transition: background 0.15s ease;
 }
 
 tbody tr:last-child td { border-bottom: none; }
@@ -208,8 +250,12 @@ tbody td:first-child {
   border-right: 1px solid var(--border);
 }
 
-tbody tr:hover td { background: var(--accent-light) !important; }
-tbody tr:hover td:first-child { background: var(--accent-light) !important; }
+/* Hover: dark teal tint — NOT white */
+tbody tr:hover td,
+tbody tr:hover td:first-child,
+tbody tr:hover th {
+  background: var(--accent-light) !important;
+}
 
 /* ============================================================
    Page content
@@ -228,33 +274,34 @@ hr {
    Code
    ============================================================ */
 code, pre, .highlight {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 pre {
-  background: #0a0f1a !important;
-  color: #e2e8f0 !important;
+  background: #020c1b !important;
+  color: #ccd6f6 !important;
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1rem 1.25rem;
   overflow: auto;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   margin: 1.25rem 0;
+  line-height: 1.6;
 }
 
 code {
   background: var(--bg-inset) !important;
-  color: var(--accent-hover) !important;
+  color: var(--accent) !important;
   border: 1px solid var(--border-strong);
   border-radius: 4px;
-  padding: 0.1em 0.35em;
-  font-size: 0.875em;
+  padding: 0.1em 0.4em;
+  font-size: 0.85em;
 }
 
 pre code {
   background: transparent !important;
-  color: #e2e8f0 !important;
+  color: #ccd6f6 !important;
   border: none;
   padding: 0;
 }
@@ -267,11 +314,21 @@ blockquote {
   background: var(--accent-light);
   padding: 0.75rem 1rem;
   border-radius: 0 6px 6px 0;
-  color: var(--text-body);
   margin: 1.25rem 0;
 }
 
-blockquote p { margin-bottom: 0; }
+blockquote p {
+  margin-bottom: 0;
+  color: var(--text-body) !important;
+}
+
+/* ============================================================
+   Images
+   ============================================================ */
+img {
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
 
 /* ============================================================
    Footer
@@ -289,11 +346,14 @@ blockquote p { margin-bottom: 0; }
   margin-bottom: 0.25rem;
 }
 
-.site-footer a { color: var(--accent) !important; }
+.site-footer a {
+  color: var(--accent) !important;
+  transition: color 0.2s ease;
+}
 
 .site-footer a:hover {
   color: var(--accent-hover) !important;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .site-footer p,
@@ -307,7 +367,7 @@ blockquote p { margin-bottom: 0; }
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(18px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
@@ -316,17 +376,32 @@ blockquote p { margin-bottom: 0; }
   transform: translateY(0);
 }
 
-/* Stagger siblings so they cascade in */
 .reveal.delay-1 { transition-delay: 0.06s; }
 .reveal.delay-2 { transition-delay: 0.12s; }
 .reveal.delay-3 { transition-delay: 0.18s; }
 .reveal.delay-4 { transition-delay: 0.24s; }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* ============================================================
+   Responsive — mobile nav + readability
+   ============================================================ */
+@media (max-width: 600px) {
+  h1 { font-size: 1.5rem; }
+  h3 { font-size: 1rem; }
+
+  table {
+    font-size: 0.82rem;
+  }
+
+  tbody td:first-child {
+    width: 110px;
+    white-space: normal;
   }
 }
