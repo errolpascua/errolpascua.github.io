@@ -34,7 +34,7 @@ I value:
 - Documentation that explains *why*, not just *what*
 - Writing code that someone else can confidently maintain
 
-I tend to gravitate toward roles where correctness and reliability matter, and where there's mentorship and clear technical direction to support growth.
+I gravitate toward roles where correctness and reliability matter -- where the cost of a bug is high and the engineering has to reflect that.
 
 ---
 

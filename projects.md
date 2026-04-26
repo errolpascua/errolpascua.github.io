@@ -4,42 +4,56 @@ title: Projects
 permalink: /projects/
 ---
 
-## Selected Engineering Projects
+## Professional Projects
 
-These projects reflect my interest in hands-on engineering, rapid iteration, and building practical tools.  
-Professional projects are described at a high level and avoid proprietary details.
+These are described at a high level and avoid proprietary details.
 
 ---
 
-### Hardware-Accelerated Cryptography Integration
+### DICE Attestation Subsystem (TCG) *(in progress)*
 
 **Problem:**  
-Integrate and validate hardware cryptographic engines across multiple microcontroller families while maintaining a consistent API surface.
+Bring TCG DICE attestation to a PIC32 ARM Cortex-M device family, working within the constraints of that platform's hardware security capabilities and boot architecture.
+
+**What I'm Doing:**
+- Validated the platform's boot ROM DICE implementation (Layer 0) through hands-on testing: CDI generation, secure memory access, and characterizing what the hardware provides
+- Drafting Layer 1 architecture and requirements for a general market solution, drawing on an existing internal DICE reference implementation on a related PIC32 device family
+- Authoring ASPICE SWE.1--SWE.4 work products in parallel with the design
+
+
+---
+
+### Hardware-Accelerated Cryptography Driver Integration
+
+**Problem:**  
+Integrate and validate hardware cryptographic engines across multiple PIC32 ARM Cortex-M microcontroller families (PIC32CM, PIC32CK, PIC32CX, PIC32CZ) against a common API surface.
 
 **What I Worked On:**
-- Integrated AES (ECB, CTR, GCM, CCM, XTS), SHA, ECC, TRNG, and PKE hardware engines
-- Designed wrapper layers to normalize behavior across different hardware implementations
-- Debugged DMA interactions, interrupt behavior, and hardware state machines
+- Ported and validated AES (ECB, CTR, GCM, CCM, XTS), SHA-1/SHA-2, ECDH, ECDSA, TRNG, CMAC, HMAC, and PKE hardware engines across device families
+- Designed wrapper layers aligning device-specific hardware drivers with Microchip's Crypto v4 API, supporting both hardware accelerators and WolfSSL software backends
+- Mapped hardware registers, implemented ISR helpers, debugged DMA interactions, and validated cryptographic hardware state machines
+- Validated all implementations against NIST ACVP test vectors
 
-**Key Takeaways:**
-- Hardware acceleration introduces non-obvious timing and state constraints
-- Clear abstraction boundaries are critical for long-term maintainability
+**Key Constraints:**
+- Different silicon targets share IP but diverge at the register and DMA level -- wrapper design had to be robust enough to handle both without leaking hardware details upward
+- DMA and interrupt interactions introduced race conditions that only appeared under specific load conditions; isolated with a logic analyzer and GPIO tracing
 
 ---
 
 ### Host-Side Embedded Test Framework
 
 **Problem:**  
-Embedded cryptographic code is difficult to validate purely on-device.
+Cryptographic driver code running on ARM Cortex-M hardware is slow to iterate on -- each test cycle requires a build, flash, and serial read. Hardware is not always available.
 
 **What I Built:**
-- Host-side unit testing framework using CMake, Unity, and GCC
-- Hardware abstraction mocks for crypto engines, DMA, and interrupts
-- Automated regression testing and coverage reporting
+- Host-side unit testing framework using CMake, Unity, CMock, and GCC/MinGW -- runs on a development machine with hardware mocked out
+- Full hardware abstraction layer mocking crypto engines, DMA controllers, and interrupt paths
+- GCOV-based line, call, and branch coverage with HTML reports to support ASPICE compliance verification
+- Ported the ARTEMIS regression framework to four target device families for on-device regression runs
 
 **Why It Matters:**
-- Enables fast iteration without flashing hardware
-- Improves confidence in correctness and edge cases
+- Eliminates the flash-and-test cycle for the majority of correctness work
+- Makes it practical to hit coverage targets required for ASPICE compliance without constant hardware access
 
 ---
 
