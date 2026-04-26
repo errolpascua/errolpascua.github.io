@@ -7,22 +7,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ============================================================
-   Design tokens — deep navy + teal (security-grade dark)
-   Reference: brittanychiang.com palette, adapted for technical portfolio
+   Design tokens — Persona 5-inspired: near-black + vivid red
    ============================================================ */
 :root {
-  --bg:            #0a192f;
-  --bg-subtle:     #112240;
-  --bg-inset:      #172b4d;
-  --text:          #e6f1ff;
-  --text-body:     #a8b2d8;
-  --text-muted:    #8892b0;
-  --text-faint:    #495670;
-  --accent:        #64ffda;
-  --accent-hover:  #a8ffe8;
-  --accent-light:  rgba(100, 255, 218, 0.07);
-  --border:        #1d3461;
-  --border-strong: #2a4a80;
+  --bg:            #0d0d0d;
+  --bg-subtle:     #161616;
+  --bg-inset:      #1f1f1f;
+  --text:          #f0f0f0;
+  --text-body:     #c8c8c8;
+  --text-muted:    #8a8a8a;
+  --text-faint:    #4a4a4a;
+  --accent:        #e8102a;
+  --accent-hover:  #ff3347;
+  --accent-light:  rgba(232, 16, 42, 0.08);
+  --border:        #2a2a2a;
+  --border-strong: #3a3a3a;
 }
 
 /* ============================================================
