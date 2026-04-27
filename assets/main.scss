@@ -254,13 +254,6 @@ tbody tr:nth-child(even) {
   background: transparent !important;
 }
 
-tbody tr:nth-child(odd) td,
-tbody tr:nth-child(even) td,
-tbody tr:nth-child(odd) th,
-tbody tr:nth-child(even) th {
-  background: var(--bg) !important;
-}
-
 tbody td {
   color: var(--text-body) !important;
   padding: 0.65rem 1rem;
@@ -375,16 +368,6 @@ img {
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 0.25rem;
-}
-
-.site-footer a {
-  color: var(--accent) !important;
-  transition: color 0.2s ease;
-}
-
-.site-footer a:hover {
-  color: var(--accent-hover) !important;
-  text-decoration: none;
 }
 
 .site-footer p,

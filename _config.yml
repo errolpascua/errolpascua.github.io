@@ -1,6 +1,5 @@
 title: "Errol Pascua"
 theme: minima
-description: ""
 
 minima:
   skin: dark
@@ -12,4 +11,3 @@ header_pages:
   - resume.md
   - projects.md
   - about.md
-  - linkedin.md

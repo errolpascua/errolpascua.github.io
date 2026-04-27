@@ -17,16 +17,3 @@ This site is a quick overview of what I work on and how I work.
 - **[Projects](/projects/)**
 - **[About](/about/)**
 
----
-
-### What I bring
-
-- Crypto API validation and integration across multiple PIC32 ARM families
-- Porting driver code across shared-IP silicon targets (register mapping, build system configuration)
-- MISRA-C compliance enforcement using Cppcheck Premium and Coverity
-- Python tooling -- GUI wrappers, CLI scripts, and report generators that improve existing workflows
-- Building demo and reference applications that prove out hardware capabilities
-- ASPICE documentation and test planning for embedded security work streams
-
----
-
