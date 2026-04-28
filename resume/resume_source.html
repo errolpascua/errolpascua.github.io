@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Errol Pascua — Resume</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    background: #fff;
+    padding: 0.7in 0.75in 0.7in 0.75in;
+    max-width: 8.5in;
+  }
+
+  .header { margin-bottom: 10px; }
+  .header h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 2px;
+  }
+  .header .title { font-size: 10.5pt; color: #444; margin-bottom: 4px; }
+  .header .contact { font-size: 9.5pt; color: #555; }
+  .header .contact a { color: #555; text-decoration: none; }
+
+  h2 {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #111;
+    border-bottom: 1.5px solid #111;
+    padding-bottom: 2px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+  }
+
+  .company {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+  .company .name { font-weight: 700; font-size: 10.5pt; }
+  .company .location { font-size: 9.5pt; color: #555; }
+
+  .role {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+  }
+  .role .title-text { font-style: italic; font-size: 10pt; }
+  .role .dates { font-size: 9.5pt; color: #555; }
+
+  h4 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #111;
+    margin-top: 7px;
+    margin-bottom: 2px;
+  }
+
+  ul { padding-left: 16px; margin-bottom: 4px; }
+  li { margin-bottom: 2px; font-size: 10pt; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-top: 4px;
+  }
+  td {
+    padding: 3px 6px;
+    vertical-align: top;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  td:first-child {
+    font-weight: 700;
+    white-space: nowrap;
+    width: 130px;
+    color: #111;
+  }
+
+  .summary { font-size: 10pt; margin-bottom: 4px; }
+
+  .edu-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  @media print {
+    body { padding: 0.6in 0.7in; }
+    h2 { page-break-after: avoid; }
+    ul { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Errol Pascua</h1>
+  <div class="title">Embedded Software Engineer &mdash; Cryptography &amp; Security</div>
+  <div class="contact">
+    Chandler, AZ &nbsp;&bull;&nbsp; (480) 252-4571 &nbsp;&bull;&nbsp; errol.pascua99@gmail.com &nbsp;&bull;&nbsp;
+    <a href="https://linkedin.com/in/errol-pascua">linkedin.com/in/errol-pascua</a> &nbsp;&bull;&nbsp;
+    <a href="https://errolpascua.com">errolpascua.com</a> &nbsp;&bull;&nbsp; U.S. Citizen
+  </div>
+</div>
+
+<h2>Summary</h2>
+<p class="summary">Embedded firmware engineer with 4+ years developing bare-metal software on ARM Cortex-M microcontrollers. Core strength in low-level C, hardware-accelerated cryptographic driver development, and compliance-driven development (MISRA-C, ASPICE). Experienced building internal test frameworks, build infrastructure, and developer tooling in Python and C.</p>
+
+<h2>Experience</h2>
+
+<div class="company">
+  <span class="name">Microchip Technology Inc.</span>
+  <span class="location">Chandler, AZ</span>
+</div>
+<div class="role">
+  <span class="title-text">Software Engineer, Cryptography &amp; Security</span>
+  <span class="dates">Jan 2022 &ndash; Present</span>
+</div>
+
+<h4>DICE Attestation (TCG) &mdash; in progress</h4>
+<ul>
+  <li>Validated the platform&rsquo;s boot ROM DICE implementation (Layer 0) through hands-on testing: CDI generation, secure memory access, and characterizing what the hardware provides</li>
+  <li>Drafting Layer 1 architecture and requirements for a general market solution, drawing on an existing internal DICE reference implementation on a related PIC32 device family</li>
+  <li>Authoring ASPICE SWE.1&ndash;SWE.4 work products in parallel with the design</li>
+</ul>
+
+<h4>Hardware Cryptographic Driver Port &mdash; PIC32CM SG</h4>
+<ul>
+  <li>Ported hardware cryptographic drivers from 16-bit dsPIC to 32-bit ARM Cortex-M (PIC32CM SG) &mdash; same underlying IP, but required remapping hardware registers, migrating the build from XC-DSC to xc32, and resolving 32-bit architecture differences</li>
+  <li>Drivers covered AES (ECB, CTR, GCM, CCM, XTS), SHA-1/SHA-2, CMAC, HMAC, GMAC, ECDH, ECDSA, RSA, ChaCha20, TRNG, and PKE; PKE required adapting to device-stored microcode rather than the source-embedded approach used on the 16-bit target</li>
+  <li>Backfilled ASPICE SWE.1&ndash;SWE.3 and API reference documentation in parallel with driver work</li>
+  <li>Modified existing secure boot use case (Python and C) to change cryptographic key storage from ROM-backed to RAM-based approach for provisioning flexibility</li>
+  <li>Updated existing demo applications to work with latest compiled static library releases (.a files), maintaining header compatibility and verifying functionality across library version changes</li>
+</ul>
+
+<h4>Unit Testing &amp; Verification</h4>
+<ul>
+  <li>Built Python-based build infrastructure to compile and run the existing Unity/CMock/CTest framework against the new device target</li>
+  <li>Wrote all unit test suites for crypto engine, DMA, and ISR paths using hardware mocks</li>
+  <li>Extended existing GCOV tooling with a visual HTML coverage report highlighting missing line, branch, and call coverage</li>
+  <li>Authored ASPICE SWE.4 (unit test specifications and verification matrix)</li>
+  <li>Debugged an NVIC interrupt collision where shared interrupt handlers caused incorrect ISR routing &mdash; identified using a logic analyzer and GPIO pin toggling, resolved by separating the handler registrations</li>
+</ul>
+
+<h4>TrustZone Secure Messaging Demo</h4>
+<ul>
+  <li>Developed cross-TrustZone crypto pipeline on PIC32CM SG: ECDH key agreement, TRNG IV generation, AES-256-GCM authenticated encryption, SHA-384 hashing, and ECDSA sign/verify</li>
+  <li>Implemented NSC veneer functions and struct interfaces for secure/non-secure boundary crossing</li>
+</ul>
+
+<h4>Crypto v4 Documentation, Testing &amp; Applications</h4>
+<ul>
+  <li>Authored Crypto v4 API reference documentation published to Microchip&rsquo;s online developer documentation</li>
+  <li>Ported ARTEMIS regression test framework to PIC32CX MTG, PIC32CZ CA91, PIC32CM SG, and PIC32CK SG</li>
+  <li>Built and maintained Crypto v4 demo applications for PIC32CM SG, PIC32CX MTG, PIC32CZ CA9x, and PIC32CK SG demonstrating hardware-accelerated and software-backed cryptographic operations</li>
+</ul>
+
+<h4>Build Systems &amp; Tooling</h4>
+<ul>
+  <li>Built Python/Tkinter GUI tools for MISRA-C static analysis workflows (Cppcheck Premium, Coverity) and firmware provisioning tooling</li>
+  <li>Created a Python GUI wrapper for an existing internal firmware metadata tool (FWMDT), simplifying the interface for HSM provisioning address configuration</li>
+  <li>Built Python CLI tooling for static analysis pipelines: configuration management (YAML/JSON parsing), XML report processing, and wrapper scripts for tool execution</li>
+</ul>
+
+<h4>Static Analysis &amp; MISRA-C Compliance</h4>
+<ul>
+  <li>Progressed team toolchain from MISRA-C:2012 through MISRA-C:2023 to MISRA-C:2025</li>
+  <li>Actively resolving 100&ndash;300+ findings per analysis cycle using Cppcheck Premium and Coverity</li>
+</ul>
+
+<h4>Collaboration &amp; Process</h4>
+<ul>
+  <li>Participated in PR-based code review workflows on Bitbucket, Agile standups, and sprint ceremonies</li>
+  <li>Coordinated cross-team dependencies with the DS PICs team on shared-IP driver integration</li>
+</ul>
+
+<div class="company" style="margin-top:10px;">
+  <span class="name">Southwest Engineering Concepts</span>
+  <span class="location">Chandler, AZ</span>
+</div>
+<div class="role">
+  <span class="title-text">Engineering Intern</span>
+  <span class="dates">Sep 2021 &ndash; Jan 2022</span>
+</div>
+<ul>
+  <li>Developed embedded products from requirements through prototyping: wireless pop-time measuring instrument, vinyl film monitoring system, inductive chronograph</li>
+  <li>Designed schematics and PCB layouts; sourced components; assembled and validated prototypes</li>
+  <li>Programmed embedded systems in C for STM32 and dsPIC microcontrollers</li>
+</ul>
+
+<h2>Education</h2>
+<div class="edu-block">
+  <span><strong>Arizona State University</strong> &mdash; B.S.E. Computer Systems Engineering (Cybersecurity Concentration)</span>
+  <span style="color:#555; font-size:9.5pt;">May 2021</span>
+</div>
+
+<h2>Technical Skills</h2>
+<table>
+  <tr><td>Languages</td><td>C (primary), Python (scripting/tooling), C++ (working knowledge), Bash/Shell</td></tr>
+  <tr><td>Cryptography</td><td>AES (ECB/CTR/GCM/CCM/XTS), SHA-1/SHA-2, CMAC, HMAC, ECDH, ECDSA, RSA, ChaCha20, TRNG, PKE, X.509, DICE/TCG attestation</td></tr>
+  <tr><td>Security</td><td>TrustZone (ARMv8-M), wolfCrypt, Microchip Crypto v4, hardware-rooted trust, secure boot</td></tr>
+  <tr><td>Hardware</td><td>ARM Cortex-M (PIC32CM, PIC32CK, PIC32CX, PIC32CZ, SAM), dsPIC, STM32; register-level programming, ISR/DMA handling</td></tr>
+  <tr><td>Debug/Tools</td><td>Segger J-Link, Saleae logic analyzer, oscilloscopes, GPIO tracing, MPLAB X IDE, Segger Embedded Studio</td></tr>
+  <tr><td>Build Systems</td><td>CMake, xc32, GCC/MinGW, Python build automation</td></tr>
+  <tr><td>Static Analysis</td><td>MISRA-C:2012/2023/2025, Cppcheck Premium, Coverity</td></tr>
+  <tr><td>Testing</td><td>NIST ACVP, Unity, CMock, CTest, GCOV, ARTEMIS regression framework</td></tr>
+  <tr><td>DevOps/Collab</td><td>Git, Bitbucket, Jira, Confluence, Polarion, Tridion Docs</td></tr>
+  <tr><td>Process</td><td>ASPICE (SWE.1&ndash;SWE.4), Agile/Scrum</td></tr>
+</table>
+
+</body>
+</html>

@@ -7,7 +7,7 @@ permalink: /resume/
 # Errol Pascua
 **Embedded Software Engineer -- Cryptography & Security**
 
-Chandler, AZ | errol.pascua99@gmail.com
+Chandler, AZ | (480) 252-4571 | errol.pascua99@gmail.com | U.S. Citizen
 
 [LinkedIn](https://www.linkedin.com/in/errol-pascua) &nbsp;|&nbsp; [Download PDF Resume](resume/Errol_Pascua.pdf)
 
@@ -34,12 +34,15 @@ Embedded firmware engineer with 4+ years developing bare-metal software on ARM C
 - Ported hardware cryptographic drivers from 16-bit dsPIC to 32-bit ARM Cortex-M (PIC32CM SG) -- same underlying IP, but required remapping hardware registers, migrating the build from XC-DSC to xc32, and resolving 32-bit architecture differences
 - Drivers covered AES (ECB, CTR, GCM, CCM, XTS), SHA-1/SHA-2, CMAC, HMAC, GMAC, ECDH, ECDSA, RSA, ChaCha20, TRNG, and PKE; PKE required adapting to device-stored microcode rather than the source-embedded approach used on the 16-bit target
 - Backfilled ASPICE SWE.1--SWE.3 and API reference documentation in parallel with driver work
+- Modified existing secure boot use case (Python and C) to change cryptographic key storage from ROM-backed to RAM-based approach for provisioning flexibility
+- Updated existing demo applications to work with latest compiled static library releases (.a files), maintaining header compatibility and verifying functionality across library version changes
 
 #### Unit Testing & Verification
 - Built Python-based build infrastructure to compile and run the existing Unity/CMock/CTest framework against the new device target
 - Wrote all unit test suites for crypto engine, DMA, and ISR paths using hardware mocks
 - Extended existing GCOV tooling with a visual HTML coverage report highlighting missing line, branch, and call coverage
 - Authored ASPICE SWE.4 (unit test specifications and verification matrix)
+- Debugged an NVIC interrupt collision where shared interrupt handlers caused incorrect ISR routing -- identified using a logic analyzer and GPIO pin toggling, resolved by separating the handler registrations
 
 #### TrustZone Secure Messaging Demo
 - Developed cross-TrustZone crypto pipeline on PIC32CM SG: ECDH key agreement, TRNG IV generation, AES-256-GCM authenticated encryption, SHA-384 hashing, and ECDSA sign/verify
@@ -47,15 +50,21 @@ Embedded firmware engineer with 4+ years developing bare-metal software on ARM C
 
 #### Crypto v4 Documentation, Testing & Applications
 - Authored Crypto v4 API reference documentation published to Microchip's online developer documentation
-- Ported ARTEMIS regression test framework to PIC32CX MTG, PIC32CZ CA91, PIC32CK SG, and PIC32CM SG
+- Ported ARTEMIS regression test framework to PIC32CX MTG, PIC32CZ CA91, PIC32CM SG, and PIC32CK SG
 - Built and maintained Crypto v4 demo applications for PIC32CM SG, PIC32CX MTG, PIC32CZ CA9x, and PIC32CK SG demonstrating hardware-accelerated and software-backed cryptographic operations
 
 #### Build Systems & Tooling
 - Built Python/Tkinter GUI tools for MISRA-C static analysis workflows (Cppcheck Premium, Coverity) and firmware provisioning tooling
+- Created a Python GUI wrapper for an existing internal firmware metadata tool (FWMDT), simplifying the interface for HSM provisioning address configuration
+- Built Python CLI tooling for static analysis pipelines: configuration management (YAML/JSON parsing), XML report processing, and wrapper scripts for tool execution
 
 #### Static Analysis & MISRA-C Compliance
 - Progressed team toolchain from MISRA-C:2012 through MISRA-C:2023 to MISRA-C:2025
 - Actively resolving 100--300+ findings per analysis cycle using Cppcheck Premium and Coverity
+
+#### Collaboration & Process
+- Participated in PR-based code review workflows on Bitbucket, Agile standups, and sprint ceremonies
+- Coordinated cross-team dependencies with the DS PICs team on shared-IP driver integration
 
 ---
 
@@ -65,7 +74,7 @@ Embedded firmware engineer with 4+ years developing bare-metal software on ARM C
 
 - Developed embedded products from requirements through prototyping: wireless pop-time measuring instrument, vinyl film monitoring system, inductive chronograph
 - Designed schematics and PCB layouts; sourced components; assembled and validated prototypes
-- Programmed embedded systems in C for STM32 and Microchip microcontrollers
+- Programmed embedded systems in C for STM32 and dsPIC microcontrollers
 
 ---
 
@@ -85,7 +94,7 @@ Embedded firmware engineer with 4+ years developing bare-metal software on ARM C
 | **Cryptography** | AES (ECB/CTR/GCM/CCM/XTS), SHA-1/SHA-2, CMAC, HMAC, ECDH, ECDSA, RSA, ChaCha20, TRNG, PKE, X.509, DICE/TCG attestation |
 | **Security** | TrustZone (ARMv8-M), wolfCrypt, Microchip Crypto v4, hardware-rooted trust, secure boot |
 | **Hardware** | ARM Cortex-M (PIC32CM, PIC32CK, PIC32CX, PIC32CZ, SAM), dsPIC, STM32; register-level programming, ISR/DMA handling |
-| **Debug/Tools** | Segger J-Link, logic analyzers, oscilloscopes, GPIO tracing, MPLAB X IDE, Segger Embedded Studio |
+| **Debug/Tools** | Segger J-Link, Saleae logic analyzer, oscilloscopes, GPIO tracing, MPLAB X IDE, Segger Embedded Studio |
 | **Build Systems** | CMake, xc32, GCC/MinGW, Python build automation |
 | **Static Analysis** | MISRA-C:2012/2023/2025, Cppcheck Premium, Coverity |
 | **Testing** | NIST ACVP, Unity, CMock, CTest, GCOV, ARTEMIS regression framework |
